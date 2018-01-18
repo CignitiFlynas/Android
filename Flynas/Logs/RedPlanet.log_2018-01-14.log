@@ -1,0 +1,54 @@
+2018-01-14 17:05:29-main--INFO -com.ctaf.accelerators.TestEngine:Android
+2018-01-14 17:05:52-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_2a_oneWayDomesticBusinessCC
+2018-01-14 17:08:48-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:08:53-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail
+2018-01-14 17:16:33-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_61_verifingFareSummaryPrices
+2018-01-14 17:18:18-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:18:23-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_b_oneWayDomesticBusiness1AdultCC
+2018-01-14 17:20:08-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:20:12-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_d_AnonymousOneWayIntlExtraIntlMultiPaxCheckinFail2
+2018-01-14 17:27:42-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_c_RTDomesticSimple1AdultCC
+2018-01-14 17:29:27-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:29:31-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_e_AnonymousOneWayIntlBusinessIntlMultiPaxCheckinFail
+2018-01-14 17:37:03-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-14 17:38:38-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:38:43-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_05_AnonymousOneWayDomNineAdultCheckin
+2018-01-14 17:48:05-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:48:10-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-14 17:49:55-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:50:00-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_06_AnonymousOneWayInterTwoAdultEco
+2018-01-14 17:56:21-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-14 17:58:08-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 17:58:12-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_07_AnonymousRoundTripDomFourAdultBusiness
+2018-01-14 18:24:50-main--INFO -com.ctaf.accelerators.TestEngine:Android
+2018-01-14 18:25:11-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_2a_oneWayDomesticBusinessCC
+2018-01-14 18:28:07-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 18:28:12-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail
+2018-01-14 18:33:48-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 18:33:53-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_61_verifingFareSummaryPrices
+2018-01-14 18:35:40-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 18:35:45-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_b_oneWayDomesticBusiness1AdultCC
+2018-01-14 18:37:35-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 18:37:39-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_d_AnonymousOneWayIntlExtraIntlMultiPaxCheckinFail2
+2018-01-14 18:45:13-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_c_RTDomesticSimple1AdultCC
+2018-01-14 18:46:47-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 18:46:52-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_e_AnonymousOneWayIntlBusinessIntlMultiPaxCheckinFail
+2018-01-14 18:52:28-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 18:52:33-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-14 18:54:09-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 18:54:14-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_05_AnonymousOneWayDomNineAdultCheckin
+2018-01-14 19:06:35-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 19:06:39-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-14 19:08:29-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 19:08:34-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_06_AnonymousOneWayInterTwoAdultEco
+2018-01-14 19:15:01-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-14 19:16:39-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 19:16:44-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_07_AnonymousRoundTripDomFourAdultBusiness
+2018-01-14 19:26:16-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_2g_oneWayDomesticEcoSADAD
+2018-01-14 19:30:07-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 19:30:10-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 19:30:15-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_08_AnonymousRTInt1ad1Ch1InBusExtra
+2018-01-14 19:38:39-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_3a_AnonymousOneWayDomesticSimpleChangeDate
+2018-01-14 19:42:21-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-14 19:42:25-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_09_AnonymousRTInt1ad1Ch1InEcoExtras
+2018-01-14 19:50:27-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_03b_AnonymousOneWayDomesticSimpleChangeDate

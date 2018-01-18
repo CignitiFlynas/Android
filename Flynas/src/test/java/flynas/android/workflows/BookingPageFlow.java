@@ -26,6 +26,7 @@ import flynas.android.testObjects.BookingPageLocators;
 
 
 
+
 public class BookingPageFlow extends BookingPageLocators{
 	
 	public void inputBookingDetails(String tripType, String origin, String dest, String deptDate,
@@ -56,6 +57,7 @@ public class BookingPageFlow extends BookingPageLocators{
 			click(BookingPageLocators.Departuredate, "Departure Date");
 			select_date(deptDate);
 			click(BookingPageLocators.Select_date, "Select Date");
+			Thread.sleep(1000);
 		}
 		
 		if(tripType.equalsIgnoreCase("Round Trip"))
@@ -124,9 +126,25 @@ public class BookingPageFlow extends BookingPageLocators{
 				type(BookingPageLocators.promo,promo,"Entered promo code");
 		}
 		
+	}
+
+	
+	public void select_dates(String deptDate, String retDate) throws Throwable{
+		click(BookingPageLocators.Departuredate, "Departure Date");
+		select_date(deptDate);
+		if(retDate!="") 
+		select_date(retDate);
+		click(BookingPageLocators.Select_date, "Select Date");
+	}
+	
+	public void selectPayWithSmilePoint() throws Throwable{
+		scrollToElement(BookingPageLocators.smilePointsbtn);
+		click(BookingPageLocators.smilePointsbtn,"Smile points");
+	}
+	
+	public void clickFindFlightsBtn() throws Throwable{
 		scrollToText("Find Flights");
 		click(BookingPageLocators.findFlights, "Find Flights");
-			
 	}
 
 	public void select_date(String deptdate) throws Throwable
@@ -184,57 +202,8 @@ public class BookingPageFlow extends BookingPageLocators{
 		
 			
 			
-		
-	/*	selectCity(BookingPageLocators.selectOrigin, "Origin", origin);
-		click(BookingPageLocators.dest, "Destination");
-		Thread.sleep(2000);
-		selectCity(BookingPageLocators.selectDest, "Destination", dest);
-		click(BookingPageLocators.dpDate,"Departure Date");
-		selectDate(BookingPageLocators.selectDate,"Departure Date",deptDate);*/
-	/*	if(tripType.equalsIgnoreCase("Round Trip")){
-			//click(BookingPageLocators.rtDate,"Return Date");
-			selectDate(BookingPageLocators.selectDate,"Return Date",retDate);
-		}
-		if(tripType.equalsIgnoreCase("Multi City")){
-			click(BookingPageLocators.secOrigin, "Origin");
-			selectCity(BookingPageLocators.selectSecOrigin, "Origin", origin2);
-			selectCity(BookingPageLocators.selectSecDest, "Destination", departure2);
-			click(BookingPageLocators.rtDate,"Return Date");
-			selectDate(BookingPageLocators.selectDate,"Return Date",retDate);
-		}
-		if(Integer.valueOf(adults)>=1){
-			click(BookingPageLocators.adult, "Adult");
-			System.out.println("Adults: "+adults);
-			driver.findElement(By.xpath("//div[text()='"+adults+"']")).click();
-			//selectValueFromDropDown(BookingPageLocators.selectAdult, "Adult", adults);
-		}
-		if(Integer.valueOf(child)>=1){
-			click(BookingPageLocators.child, "Child");
-			driver.findElement(By.xpath("//div[text()='"+child+"']")).click();
-			//selectValueFromDropDown(BookingPageLocators.selectChild, "Child", child);
-		}
-		if(Integer.valueOf(infant)>=1){
-			click(BookingPageLocators.infant, "Infant");
-			driver.findElement(By.xpath("//div[text()='"+child+"']")).click();
-			//selectValueFromDropDown(BookingPageLocators.selectInfant, "Infant", infant);
-		}
-		if(!promo.equalsIgnoreCase("")){
-			type(BookingPageLocators.promo, promo, "Promo");
-		}
-		click(BookingPageLocators.findFlights,"Find Flights");
-		return true;*/
-	
-
-
-	private void While(boolean displayed) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 	public boolean selectClass(String bookingClass, String tripType) throws Throwable{
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-		boolean flag=false;
 		
 		List<WebElement> flights = driver.findElements(BookingPageLocators.flights);
 		List<WebElement> ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
@@ -253,7 +222,7 @@ public class BookingPageFlow extends BookingPageLocators{
 					ClassArrow.get(k+1).click();
 				}
 			}
-			if(bookingClass.contains("Economy")){
+			if(bookingClass.contains("Simple")){
 				if(isElementDisplayedTemp(BookingPageLocators.economyOW)==true){
 					click(BookingPageLocators.economyOW, "Economy");
 					break;
@@ -261,7 +230,7 @@ public class BookingPageFlow extends BookingPageLocators{
 					ClassArrow.get(k+1).click();
 				}
 			}
-			if(bookingClass.contains("Flex")){
+			if(bookingClass.contains("Extra")){
 				if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
 					click(BookingPageLocators.flexOW, "Flex");
 					break;
@@ -289,218 +258,65 @@ public class BookingPageFlow extends BookingPageLocators{
 						rtClassArrow.get(k+1).click();
 					}
 				}
-				if(bookingClass.contains("Economy")){
+				if(bookingClass.contains("Simple")){
+					if(isElementDisplayedTemp(BookingPageLocators.economyOW)==true){
+						click(BookingPageLocators.economyOW, "Simple");
+						break;
+					}else{
+						rtClassArrow.get(k+1).click();
+					}
+				}
+				if(bookingClass.contains("Extra")){
+					if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
+						click(BookingPageLocators.flexOW, "Extra");
+						break;
+					}else{
+						rtClassArrow.get(k+1).click();
+					}
+				}
+				}
+		}	
+		return true;
+	}
+	
+	public void selectClassForEmployee(String bookingClass) throws Throwable{
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		while(isElementPresent(BookingPageLocators.title)==false){
+			List<WebElement> ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
+			while(ClassArrow.size()==0){
+				click(BookingPageLocators.rightarrow, "Calander rightarrow in select class");
+				waitforElement(BookingPageLocators.nextFlight);
+				click(BookingPageLocators.nextFlight, "Next Available Flight");
+				ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
+			}
+		
+			for(int k=0;k<ClassArrow.size();k++){
+				if(bookingClass.contains("Simple")){
 					if(isElementDisplayedTemp(BookingPageLocators.economyOW)==true){
 						click(BookingPageLocators.economyOW, "Economy");
 						break;
 					}else{
-						rtClassArrow.get(k+1).click();
+						ClassArrow.get(k+1).click();
 					}
 				}
-				if(bookingClass.contains("Flex")){
+				if(bookingClass.contains("Staff Stand By")){
 					if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
 						click(BookingPageLocators.flexOW, "Flex");
 						break;
 					}else{
-						rtClassArrow.get(k+1).click();
+						ClassArrow.get(k+1).click();
 					}
 				}
-				}
-		}
-		/*if(ClassArrow.size()==0)
-		{
-			flights.get(2).click();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
-			if(ClassArrow.size()==0){
-				for(int i=0;i<10;i++)
-				{
-					click(BookingPageLocators.rightarrow, "Right Arrow");
-					ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
-					if(ClassArrow.size()>=1){
-						for(int j=0;j<ClassArrow.size();j++)
-						{
-							if(ClassArrow.size()>1){
-							ClassArrow.get(i).click();}
-							if(bookingClass.contains("Business")){
-								if(isElementDisplayedTemp(BookingPageLocators.busOW)==true){
-									break;
-								}
-							}
-							if(bookingClass.contains("Economy")){
-								if(isElementDisplayedTemp(BookingPageLocators.economyOW)==true){
-									break;
-								}
-							}
-							if(bookingClass.contains("Flex")){
-								if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
-									break;
-								}
-							}
-						}
-						
-					}
-					break;	
-				}
-				
-			}
-		}
-		else
-		{						
-			
-			for(int i=0;i<flights.size();i++)
-			{
-				 ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
-				if(ClassArrow.size()!=0 && ClassArrow.size()>1)	{
-				for(int k=0;k<ClassArrow.size();k++){
-					ClassArrow.get(k).click();
-					if(bookingClass.contains("Business")){
-						if(isElementDisplayedTemp(BookingPageLocators.busOW)==true){
-							break;
-						}
-					}
-					if(bookingClass.contains("Economy")){
-						if(isElementDisplayedTemp(BookingPageLocators.economyOW)==true){
-							break;
-						}
-					}
-					if(bookingClass.contains("Flex")){
-						if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
-							break;
-						}
-					}
-					}break;
-				}else{
-					if(bookingClass.contains("Business")){
-						if(isElementDisplayedTemp(BookingPageLocators.busOW)==true){
-							break;
-						}
-						else{
-							if(ClassArrow.size()>1){
-								ClassArrow.get(i+1).click();
-							}else{
-								flights.get(i+1).click();
-								driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
-							}
-						}
-					}
-					if(bookingClass.contains("Economy")){
-						if(isElementDisplayedTemp(BookingPageLocators.economyOW)==true){
-							break;
-						}else{
-							if(ClassArrow.size()>1){
-								ClassArrow.get(i+1).click();
-							}else{
-								flights.get(i+2).click();
-								driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
-							}
-						}
-					}
-					if(bookingClass.contains("Flex")){
-						if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
-							break;
-						}else{
-							if(ClassArrow.size()>1){
-								ClassArrow.get(i+1).click();
-							}else{
-								flights.get(i+2).click();
-								driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
-							}
-						}
-					}
-				}
-			}
-			
-			//System.out.println("No UPDown Button");
-		}
-		if(bookingClass.equalsIgnoreCase("Economy")){
-			click(BookingPageLocators.economyOW,"Economy");
-			driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-		} else if(bookingClass.equalsIgnoreCase("Flex")){
-			click(BookingPageLocators.flexOW,"Flex");
-			driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-		} else if(bookingClass.equalsIgnoreCase("Business")){
-			click(BookingPageLocators.busOW,"business");
-			driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-		}
-		Reporter.SuccessReport("Verifing Selecting Class", "Successfully Selected " + bookingClass);
-		
-		if(!tripType.equalsIgnoreCase("One Way")){
-			driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
-		
-			flights = driver.findElements(BookingPageLocators.flights);
-			ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
-				if(ClassArrow.size()==0){
-					flights.get(2).click();
-					ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
-					if(ClassArrow.size()==0){
-						while(ClassArrow.size()!=0){
-							click(BookingPageLocators.rightarrow, "Right Arrow");
-							driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-						}
-						click(BookingPageLocators.rightarrow, "Right Arrow");
-					}
-				}
-				if(bookingClass.equalsIgnoreCase("Economy")){
-					flag=true;
-					while(flag){
-						if(ClassArrow.size()==0){
-							click(BookingPageLocators.rightarrow, "Right Arrow");}
-					
-					for(int i=0;i<ClassArrow.size();i++){
-						if(ClassArrow.size()>1){
-							ClassArrow.get(i).click();}
-							if(isElementDisplayedTemp(BookingPageLocators.economyOW)==true){
-								flag=false;
-								click(BookingPageLocators.economyOW,"Economy");
-								break;
-							}
-							else{
-					ClassArrow.get(i+1).click();
-					}
-					
-				}
-					}
-					
-				driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-			} else if(bookingClass.equalsIgnoreCase("Flex")){
-				for(int i=0;i<ClassArrow.size();i++){
-					if(ClassArrow.size()>1){
-						ClassArrow.get(i).click();}
-					if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
-						click(BookingPageLocators.flexOW,"Flex");
-						break;
-					}
-					else{
-						ClassArrow.get(i+1).click();
-					}
-					
-				}
-				driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-				
-			} else if(bookingClass.equalsIgnoreCase("Business")){
-									
-				for(int i=0;i<=ClassArrow.size();i++)
-				{
-					if(ClassArrow.size()>1){
-					ClassArrow.get(i).click();}
+				if(bookingClass.contains("Staff Confirmed")){
 					if(isElementDisplayedTemp(BookingPageLocators.busOW)==true){
-							click(BookingPageLocators.busOW,"Business");
-							break;
+						click(BookingPageLocators.busOW, "Business");
+						break;
 					}else{
-						
-						ClassArrow.get(i+1).click();
+						ClassArrow.get(k+1).click();
 					}
-					
 				}
-				driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-				
 			}
-			 Reporter.SuccessReport("Verifing Selecting  Return Class", "Successfully Selected " + bookingClass);
 		}
-		*/
-		
-		return true;
 	}
 	
 	public String generateString(int size){
@@ -843,6 +659,7 @@ public class BookingPageFlow extends BookingPageLocators{
 	}
 		
 	public boolean selectSeat(String seatSelect, String bookingtype,String triptype) throws Throwable {
+		System.out.println("Seat tyoe "+seatSelect);
 		driver.manage().timeouts().implicitlyWait(4000,TimeUnit.MILLISECONDS);
 		if(isElementDisplayed(BookingPageLocators.seatSelecttionTittle)==true){
 			List<WebElement> Seatplsbtn = driver.findElements(BookingPageLocators.seatplusbutton);
@@ -857,6 +674,7 @@ public class BookingPageFlow extends BookingPageLocators{
 					scrollToElement(BookingPageLocators.elmWithText(seatSelect));
 					List<WebElement> Seats = driver.findElements(BookingPageLocators.seatsofType(seatSelect));
 					int seatno = (int) (Math.random() * (Seats.size()-1));
+					System.out.println("Selecting seat "+seatno);
 					Seats.get(seatno).click();
 					driver.manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
 					selectseat = (isElementDisplayed(BookingPageLocators.elmWithText("Spacious")) || isElementDisplayed(BookingPageLocators.elmWithText("Business")));
@@ -874,10 +692,11 @@ public class BookingPageFlow extends BookingPageLocators{
 	
 	
 	public boolean payment(String paymentType,String pnr) throws Throwable {		
-			waitforElement(BookingPageLocators.Payment_title);
-			System.out.println(paymentType);
-			scrollToElement(BookingPageLocators.continuebtn);
-			if(paymentType.equalsIgnoreCase("Credit Card")){
+		waitforElement(BookingPageLocators.Payment_title);
+		System.out.println(paymentType);
+		scrollToElement(BookingPageLocators.continuebtn);
+			
+		if(paymentType.equalsIgnoreCase("Credit Card")){
 			type(BookingPageLocators.cardNumber,configProps.getProperty("cardNumber"),"Card Number");
 			type(BookingPageLocators.cardName,configProps.getProperty("cardHolderName"),"Card Holder Name");
 		
@@ -887,17 +706,18 @@ public class BookingPageFlow extends BookingPageLocators{
 			click(BookingPageLocators.Select_CC_Expdate, "Select");
 			
 			type(BookingPageLocators.cvvNum,configProps.getProperty("cvv"),"cvv");
-			
-		} else if(paymentType.equalsIgnoreCase("Voucher")){
+		} 
+		else if(paymentType.equalsIgnoreCase("Voucher")){
+			click(BookingPageLocators.tabVoucher,"Sadad");
 			type(BookingPageLocators.voucherNum,configProps.getProperty("voucher"),"Voucher");
 			click(BookingPageLocators.retrieveVoucher, "Retrieve Voucher");
-		} else if(paymentType.equalsIgnoreCase("SADAD")){
+		} 
+		else if(paymentType.equalsIgnoreCase("SADAD")){
 			click(BookingPageLocators.tabSadad,"Sadad");
 		//	type(BookingPageLocators.sadadOP,configProps.getProperty("sadadOLPID"),"SADAD OLP ID");
 		//	click(BookingPageLocators.terms, "Terms And Conditions");
 			scrollToElement(BookingPageLocators.continuebtn);
 			click(BookingPageLocators.continuebtn, "Purchase");
-			
 		}
 		else if(paymentType.equalsIgnoreCase("Nas"))
 			{
@@ -909,15 +729,13 @@ public class BookingPageFlow extends BookingPageLocators{
 
 			}
 
-			/*if(driver.findElement(BookingPageLocators.terms).isSelected()==false){
-					click(BookingPageLocators.terms, "Terms And Condition");}*/
-			//click(BookingPageLocators.terms, "Terms And Condition");
-			waitforElement(BookingPageLocators.continuebtn);
-			scrollToElement(BookingPageLocators.continuebtn);
-			click(BookingPageLocators.continuebtn, "Purchase");
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-	
-			if(paymentType.equalsIgnoreCase("Credit Card")){
+		waitforElement(BookingPageLocators.continuebtn);
+		scrollToElement(BookingPageLocators.continuebtn);
+		click(BookingPageLocators.continuebtn, "Purchase");
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		
+		//Clicking continue on 3D secure page in case of credit card payment
+		if(paymentType.equalsIgnoreCase("Credit Card")){
 				waitforElement(BookingPageLocators.Submit);
 						if(isElementDisplayedTemp(BookingPageLocators.Submit)==true){
 							click(BookingPageLocators.Submit, "Submit in Securepage");
@@ -931,7 +749,31 @@ public class BookingPageFlow extends BookingPageLocators{
 		return true;
 	}
 	
-
+	public boolean nasmilespayment(String Username,String Password) throws Throwable {
+		boolean flag =false;
+		waitforElement(BookingPageLocators.Payment_title);
+		System.out.println(paymentType);
+		scrollToElement(BookingPageLocators.continuebtn);
+		click(BookingPageLocators.tabNaSmiles,"Sadad");
+		
+		type(BookingPageLocators.naSmileId,Username, "naSmileID");
+		type(BookingPageLocators.naSmilepwd,Password, "naSmilePwd");
+		click(BookingPageLocators.naSmileslogin, "Log-in");
+		Thread.sleep(2000);
+		if(isElementDisplayedTemp(BookingPageLocators.redeem)==false)
+		{
+			System.out.println("NO Sufficient points");
+			flag= false;
+		}
+		else
+		{
+		click(BookingPageLocators.redeem, "Redeem");
+		Thread.sleep(2000);
+		payment("Credit Card", "");			
+		flag = true;
+		}
+		return flag;
+	}
 	
 	
 	public String getReferenceNumber() throws Throwable{
@@ -1058,9 +900,7 @@ public class BookingPageFlow extends BookingPageLocators{
 				ClassArrow = driver.findElements(BookingPageLocators.selectFlightUpDownArrow);
 				j++;
 			}
-			
-			
-			
+		
 			for(int i=0;i<ClassArrow.size();i++)
 				{
 					System.out.println("Total Flights : "+ClassArrow.size());
@@ -1153,7 +993,7 @@ public class BookingPageFlow extends BookingPageLocators{
 		System.out.println("No meal Available");
 	}}
 	
-	public void Selecting_loung() throws Throwable
+	public void Select_lounge() throws Throwable
 	{
 		if(isElementPresent(BookingPageLocators.Loung)==true)
 		{
@@ -1183,13 +1023,13 @@ public class BookingPageFlow extends BookingPageLocators{
 	
 	public void Baggage_Extra()
 	{
-		List<WebElement>  Adults = driver.findElements(BookingPageLocators.Adult_baggagae);
-		for(int i=0;i<Adults.size();i++)
+		List<WebElement>  passengers = driver.findElements(BookingPageLocators.Adult_baggagae);
+		for(int i=0;i<passengers.size();i++)
 		{
-			String value=Adults.get(i).getText();
+			String value=passengers.get(i).getText();
 			if(value.equalsIgnoreCase("Adult 1"))
 			{
-				Adults.get(i).click();
+				passengers.get(i).click();
 				ImplicitWait();
 				List<WebElement>  Baggage_weight = driver.findElements(BookingPageLocators.Baggage_weight);
 				for(int j=1;j<=Baggage_weight.size();j++)
@@ -1205,7 +1045,7 @@ public class BookingPageFlow extends BookingPageLocators{
 			else
 				if(value.equalsIgnoreCase("Child 1"))
 				{
-					Adults.get(i).click();
+					passengers.get(i).click();
 					ImplicitWait();
 					List<WebElement>  Baggage_weight = driver.findElements(BookingPageLocators.Baggage_weight);
 					for(int j=1;j<=Baggage_weight.size();j++)
@@ -1214,12 +1054,11 @@ public class BookingPageFlow extends BookingPageLocators{
 						ImplicitWait();
 						break;
 					}
-
-					
 				}
 		}
 
 	}
+	
 	public void Handlepopup() throws Throwable
 	{
 		if(isElementPresent(BookingPageLocators.Deny)==true)
@@ -1239,6 +1078,29 @@ public class BookingPageFlow extends BookingPageLocators{
 		}else{
 			xls.setCellData(sheetname, "PNR", rownum+1, value);
 			xls.setCellData(sheetname, "TestCaseNum", rownum+1,testName);
+		}
+	}
+	
+	public static void writecredentials(String userID,String password,String firstname,String lastname, String doctype, String docnumber )
+	{
+		ExcelReader xls = new ExcelReader(configProps.getProperty("Credentialsdata"),"UserCredentials");
+		int rownum = xls.getRowCount("UserCredentials");
+		if(xls.getCellData("UserCredentials", "userid", rownum)==null){
+			xls.setCellData("UserCredentials", "key", rownum, "credentials"+(rownum-1));
+			xls.setCellData("UserCredentials", "userid", rownum, userID);
+			xls.setCellData("UserCredentials", "password", rownum, password);
+			xls.setCellData("UserCredentials", "firstname", rownum, firstname);
+			xls.setCellData("UserCredentials", "lastname", rownum, lastname);
+			xls.setCellData("UserCredentials", "Document Type", rownum, doctype);
+			xls.setCellData("UserCredentials", "Document Number", rownum, docnumber);
+		}else{
+			xls.setCellData("UserCredentials", "key", rownum+1, "credentials"+(rownum));
+			xls.setCellData("UserCredentials", "userid", rownum+1, userID);
+			xls.setCellData("UserCredentials", "password", rownum+1, password);
+			xls.setCellData("UserCredentials", "firstname", rownum+1, firstname);
+			xls.setCellData("UserCredentials", "lastname", rownum+1, lastname);
+			xls.setCellData("UserCredentials", "Document Type", rownum+1, doctype);
+			xls.setCellData("UserCredentials", "Document Number", rownum+1, docnumber);
 		}
 	}
 	
@@ -1285,10 +1147,10 @@ public class BookingPageFlow extends BookingPageLocators{
 					ClassArrow.get(k+1).click();
 				}
 			}
-			if(bookingClass.contains("Flex")){
+			if(bookingClass.contains("Extra")){
 				if(isElementDisplayedTemp(BookingPageLocators.flexOW)==true){
 					String fare= getText(BookingPageLocators.flexPrice, "Flex Price");
-					click(BookingPageLocators.flexOW, "Flex");
+					click(BookingPageLocators.flexOW, "Extra");
 					waitforElement(BookingPageLocators.cartSummaryBalance);
 					String summaryfare= getText(BookingPageLocators.cartSummaryBalance, "Cart Summary Balance");
 					String totalfare = summaryfare.split("\\s+")[1];
@@ -1337,7 +1199,7 @@ public class BookingPageFlow extends BookingPageLocators{
 	
 
 	public void searchFlightCheckin(String referenceNum, String Lastname) throws Throwable{
-		waitForElementPresent(BookingPageLocators.checkInReference, "Booking Reference");
+		waitForElementPresent(BookingPageLocators.checkInReference, "CheckIn Reference");
 		type(BookingPageLocators.checkInReference, referenceNum, "Reference Number");
 		type(BookingPageLocators.lastname_incheckin, Lastname, "Lastname");
 		click(BookingPageLocators.checkin_btn, "Check-in");	
@@ -1364,7 +1226,7 @@ public class BookingPageFlow extends BookingPageLocators{
 		{
 			scrollToElement(BookingPageLocators.cnfmChanges);
 			click(BookingPageLocators.cnfmChanges, "Conform Changes");
-			if(isElementDisplayedTemp(BookingPageLocators.terms)==true)
+			if(isElementDisplayedTemp(BookingPageLocators.Payment_title)==true)
 			{
 				payment("Credit Card", "");
 			}
@@ -1454,18 +1316,12 @@ public class BookingPageFlow extends BookingPageLocators{
 			click(BookingPageLocators.ok, "OK");}
 	}
 	
-	public  void cancelFlight(String referenceNum,String email,String mobile,String lastname) throws Throwable
-	{
-		searchFlightMMB(referenceNum,lastname);
-		Thread.sleep(3000);
-		click(BookingPageLocators.cancelflightBtn, "Cancel Flight");
-		click(BookingPageLocators.flightToChange, "Select Flight");
-		click(BookingPageLocators.continuebtn, "Continue");
-		click(BookingPageLocators.ok, "Ok");
-		Thread.sleep(2000);
-		click(BookingPageLocators.cnfmChanges, "Conform");
-		Thread.sleep(2000);
-		click(BookingPageLocators.ok, "Ok");
+	public void verifyPNRinMMBList(String PNRnumber, boolean expected) throws Throwable{
+		if(isElementPresent(BookingPageLocators.MMB(PNRnumber))==expected){
+			Reporter.SuccessReport("Verifying PNR in chekin List", "Pnr");
+		}else{
+			Reporter.failureReport("Verifying PNR in chekin List", "Pnr");
+		}
 	}
 	
 	public  void registeredUsrManageFlight(String PNRnumber) throws Throwable
@@ -1476,17 +1332,60 @@ public class BookingPageFlow extends BookingPageLocators{
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
 	}
 	
-	public  void registeredUsrcancelFlight() throws Throwable
+	public void verifyPNRinCheckinList(String PNRnumber, boolean expected) throws Throwable{
+		if(isElementPresent(BookingPageLocators.checkin(PNRnumber))==expected){
+			Reporter.SuccessReport("Verifying PNR in chekin List", "Pnr");
+		}else{
+			Reporter.failureReport("Verifying PNR in chekin List", "Pnr");
+		}
+	}
+	
+	public  void registeredUsrCheckin(String PNRnumber) throws Throwable
 	{
+		
+		waitForElementPresent(BookingPageLocators.checkin_title, "Check-in title");
+		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
+		if(isElementPresent(BookingPageLocators.checkin(PNRnumber))==true){
+			click(BookingPageLocators.checkin(PNRnumber), "Checkin");
+		}else{
+			Reporter.failureReport("Click Check in", "PNR visibility");
+		}
+		
+	}
+	
+	
+	public void clickExtrasbtn(){
+		
+	}
+	
+	public void seatslctnBtn(){
+		
+	}
+	
+	public  void cancelFlights(String Flightways) throws Throwable
+	{ try{
 		waitForElementPresent(BookingPageLocators.cancelflightBtn, "Cancel Flight");		
 		click(BookingPageLocators.cancelflightBtn, "Cancel Flight");
 		waitForElementPresent(BookingPageLocators.flightToChange, "Select Flight");
-		click(BookingPageLocators.flightToChange, "Select Flight");
+		List<WebElement> Flightstocancel = driver.findElements(BookingPageLocators.flightToChange);
+		if (Flightways.equalsIgnoreCase("All"))
+			for(int i=0;i<Flightstocancel.size();i++){
+				Flightstocancel.get(i).click();
+			}
+		else if (Flightways.equalsIgnoreCase("Departing"))
+			Flightstocancel.get(0).click();
+		else if (Flightways.equalsIgnoreCase("Returning"))
+			Flightstocancel.get(1).click();
+		//click(BookingPageLocators.flightToChange, "Select Flight");
+		
 		click(BookingPageLocators.continuebtn, "Continue");
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
 		click(BookingPageLocators.ok, "ok");	
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
-		
+		Reporter.SuccessReport("Cancelling flight", "Flight cancelled");
+		}catch (Exception e){
+		Reporter.failureReport("Cancelling Flight", "Flight cancellation failed");
+		}
 	}
 	
 	public  void confirmChanges() throws Throwable
@@ -1515,7 +1414,7 @@ public class BookingPageFlow extends BookingPageLocators{
 		}
 	}
 	
-	public void verifyConformcharges() throws Throwable
+	public void verifyConfirmcharges() throws Throwable
 	{
 		if(isElementPresent(BookingPageLocators.conformedAftercharges)==true)
 		{
@@ -1541,6 +1440,14 @@ public class BookingPageFlow extends BookingPageLocators{
 		credentials[4] = xls.getCellValue("credentials"+index, "nasmiles");
 		return credentials;
 	} 
+	
+	public void verifyAnonymousCheckinFail() throws Throwable{
+		if(isElementPresent(BookingPageLocators.checkInFlight)==false){
+			Reporter.SuccessReport("Verifing anonymous checkin failure", "Failure message");
+		}else{
+			Reporter.failureReport("Verifing anonymous checkin failure", "Failure message");
+		}
+	}
 	
 }
 

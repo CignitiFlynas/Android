@@ -1,0 +1,42 @@
+2018-01-08 12:14:13-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 12:14:48-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-08 12:23:50-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-08 12:41:20-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 12:41:40-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 12:42:09-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-08 12:45:21-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-08 12:51:07-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 12:51:33-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-08 13:13:12-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 13:14:40-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-08 13:17:48-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-08 13:19:18-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 13:19:45-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-08 13:23:01-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-08 13:23:59-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 13:24:25-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-08 13:30:26-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-08 13:31:16-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 13:31:44-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-08 14:12:53-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 14:14:14-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 14:14:41-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_04_AnonymousOneWayDomOneAdultCheckin
+2018-01-08 14:22:11-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 14:22:40-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_04_AnonymousOneWayDomOneAdultCheckin
+2018-01-08 15:59:12-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 15:59:39-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_04_AnonymousOneWayDomOneAdultCheckin
+2018-01-08 17:53:01-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 17:53:31-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_15_EmpLoginOnewayOneAdultStaffStandByChangFlightCancel
+2018-01-08 17:55:00-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-08 18:03:16-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 18:03:42-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_15_EmpLoginOnewayOneAdultStaffStandByChangFlightCancel
+2018-01-08 18:06:41-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-08 18:09:03-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 18:09:29-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_15_EmpLoginOnewayOneAdultStaffStandByChangFlightCancel
+2018-01-08 18:54:20-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 18:54:49-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_15_EmpLoginOnewayOneAdultStaffStandByChangFlightCancel
+2018-01-08 19:00:03-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 19:00:32-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_15_EmpLoginOnewayOneAdultStaffStandByChangFlightCancel
+2018-01-08 19:08:22-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-08 19:08:50-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_15_EmpLoginOnewayOneAdultStaffStandByChangFlightCancel
+2018-01-08 19:14:50-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot

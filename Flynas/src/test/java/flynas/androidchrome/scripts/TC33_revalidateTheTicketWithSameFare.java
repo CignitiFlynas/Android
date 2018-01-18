@@ -8,7 +8,7 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.workflows.BookingPageFlow;
+import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC33_revalidateTheTicketWithSameFare extends BookingPageFlow{
 ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"FL_WEB_33");

@@ -1406,11 +1406,10 @@ public class BookingPageFlow<RenderedWebElement> extends BookingPageLocators{
 			
 		}
 	}
-	public void Select_longue() throws Throwable
+	public void Select_lounge() throws Throwable
 	{
 		if(isElementPresent(BookingPageLocators.Loung)==true)
-		{
-			
+		{((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(BookingPageLocators.Loung));
 			List<WebElement> allPassengers=driver.findElements(BookingPageLocators.allPassengers_Loung);
 			for(int i=0;i<allPassengers.size();i++)
 			{
@@ -1441,36 +1440,100 @@ public class BookingPageFlow<RenderedWebElement> extends BookingPageLocators{
 			System.out.println("No Loung");
 			Reporter.SuccessReport("Verifing Loung Select", "No Loung is available to select");
 		}
-		//click(BookingPageLocators.continueBtn, "Continue");
+		//clickContinueBtn();
 	}
-	public  String cancelFlight() throws Throwable
+	
+	public  void cancelFlight(String flightway) throws Throwable
 	{
 		waitforElement(BookingPageLocators.manageMyBookingTittle);
 		waitUtilElementhasAttribute(BookingPageLocators.body);
-		scrollToElement(BookingPageLocators.summaryCancelFlight);
+		String priceBeforeChange = getText(BookingPageLocators.Totalprice, "PriceBeforeChange");
+		String[] pricebefore = priceBeforeChange.split("\\s");
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(BookingPageLocators.summaryCancelFlight));
 		click(BookingPageLocators.summaryCancelFlight, "CancelFlight");
 		List<WebElement> cancelflights = driver.findElements(BookingPageLocators.selectFlightstoCancel);
+		Thread.sleep(1000);
+		if(flightway.equalsIgnoreCase("Departing")){
+			cancelflights.get(0).click();
+		}else if (flightway.equalsIgnoreCase("Returning")){
+			cancelflights.get(1).click();
+		}else
 		for(int i=0;i<cancelflights.size();i++)
 		{
 			cancelflights.get(i).click();
 		}
 		waitUtilElementhasAttribute(BookingPageLocators.body);
 		click(BookingPageLocators.cancelflightBtn, "CancelFlight");
-		waitforElement(BookingPageLocators.priceBeforeChange);
+		waitUtilElementhasAttribute(BookingPageLocators.body);
+		String[] price=null;
+		if(isElementPresent(BookingPageLocators.priceBeforeChange)==true){
+			String priceBeforChange = getText(BookingPageLocators.priceBeforeChange, "PriceBeforeChange");
+			price = priceBeforChange.split("\\s");
+			waitforElement(BookingPageLocators.priceBeforeChange);
+			}
+		click(BookingPageLocators.conformCharges, "Conform Charges");
+		if(isElementDisplayedTemp(BookingPageLocators.ok)){
+		click(BookingPageLocators.ok, "ok");
+		}
+		verifyCancellation(flightway,pricebefore[1]);	
+		
+	}
+	
+	public  String agentcancelFlight(String flightway) throws Throwable
+	{
+		waitforElement(BookingPageLocators.manageMyBookingTittle);
+		waitUtilElementhasAttribute(BookingPageLocators.body);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(BookingPageLocators.summaryCancelFlight));
+		click(BookingPageLocators.summaryCancelFlight, "CancelFlight");
+		List<WebElement> cancelflights = driver.findElements(BookingPageLocators.selectFlightstoCancel);
+		if(flightway.equalsIgnoreCase("Departing")){
+			cancelflights.get(0).click();
+		}else if (flightway.equalsIgnoreCase("Return")){
+			cancelflights.get(1).click();
+		}else
+		for(int i=0;i<cancelflights.size();i++)
+		{
+			cancelflights.get(i).click();
+		}
+		waitUtilElementhasAttribute(BookingPageLocators.body);
+		click(BookingPageLocators.cancelflightBtn, "CancelFlight");
 		waitUtilElementhasAttribute(BookingPageLocators.body);
 		String priceBeforChange = getText(BookingPageLocators.priceBeforeChange, "PriceBeforeChange");
-		/*String[] price = priceBeforChange.split("\\s");*/
+		String[] price = priceBeforChange.split("\\s");
 		waitforElement(BookingPageLocators.priceBeforeChange);
 		click(BookingPageLocators.conformCharges, "Conform Charges");
 		if(isElementDisplayedTemp(BookingPageLocators.ok)){
 		click(BookingPageLocators.ok, "ok");
 		}
 		//Thread.sleep(5000);
-		verifyConformcharges();
+		verifyCancellation(flightway,price[1]);
 		
-		return "";
+		return price[1];
 		
 	}
+	
+	public void verifyCancellation(String Flightway,String priceBefore) throws Throwable
+	{
+		if(!Flightway.equalsIgnoreCase("Departing")&&!Flightway.equalsIgnoreCase("Returning")){
+		waitforElement(BookingPageLocators.cancelled);
+		waitUtilElementhasAttribute(BookingPageLocators.body);
+		if(isElementDisplayedTemp(BookingPageLocators.cancelled)==true){
+			Reporter.SuccessReport("Verifing cancellation status", "Successfully Verified Cancel Confirmed");
+			}
+		else{
+			Reporter.failureReport("Verifing cancellation status", "Cancellation not confirmed");
+			}
+		}else{
+			String priceBeforChange = getText(BookingPageLocators.Totalprice, "priceAfterChange");
+			String[] priceAfter = priceBeforChange.split("\\s");
+			if(!priceBefore.equalsIgnoreCase(priceAfter[1])){
+				Reporter.SuccessReport("Verifing cancellation status", "Successfully Verified "+Flightway+" flight cancellation");
+				}else{
+				Reporter.SuccessReport("Verifing cancellation status", Flightway+" flight cancellation not confirmed");
+				}
+		}
+	}
+	
 	public void verifyConformcharges() throws Throwable
 	{
 		waitforElement(BookingPageLocators.conformedAftercharges);
@@ -2607,6 +2670,22 @@ public class BookingPageFlow<RenderedWebElement> extends BookingPageLocators{
 			Reporter.failureReport("Verifing Member Update", "Member is not Successfully Updated");
 		}
 	}
+	
+	public void verifingProfileUpdatemessage() throws Throwable
+	{
+		waitforElement(BookingPageLocators.memberUpdateConf);
+		waitUtilElementhasAttribute(BookingPageLocators.body);
+		if(isElementPresent(BookingPageLocators.memberUpdateConf)==true)
+		{
+			click(BookingPageLocators.ok, "ok");
+			Reporter.SuccessReport("Verifing Member Update", "Member is Successfully Updated");
+		}
+		else
+		{
+			Reporter.failureReport("Verifing Member Update", "Member is not Successfully Updated");
+		}
+	}
+	
 	public void validating_BaggageWeights() throws Throwable
 	{
 		waitforElement(BookingPageLocators.baggagetittle);

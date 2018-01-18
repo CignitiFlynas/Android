@@ -18,7 +18,7 @@ public class TC06_AnonymousOneWayInterTwoAdultEco extends BookingPageFlow {
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_06_AnonymousOneWayInterTwoAdultEco(String tripType, String origin, String dest, 
-			String deptDate, String origin2,String departure2, String retdate,String Audalt,String Child,String infant, String promo, 
+			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, String promo, 
 			String strBookingClass,
 			String FlightType,String totalpass,String nationality,String Doctype,String docNumber,
 			String naSmiles,String Mobile,String email ,String SelectSeat,String paymenttype,String bookingtype, 
@@ -36,8 +36,9 @@ public class TC06_AnonymousOneWayInterTwoAdultEco extends BookingPageFlow {
 			Homepage homepage = new Homepage();
 						
 			homepage.select_Bookflights("Anonymous");
-			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Audalt, Child, infant,promo,Currency);
- 			selectClass(strBookingClass, tripType);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Adult, Child, infant,promo,Currency);
+			clickFindFlightsBtn();
+			selectClass(strBookingClass, tripType);
  			inputPassengerDetails(FlightType,totalpass,nationality,Doctype,docNumber, naSmiles,Mobile,email,"","","");
  			continueOnExtras();
  			continueOnSeatSelection();
@@ -81,7 +82,7 @@ public class TC06_AnonymousOneWayInterTwoAdultEco extends BookingPageFlow {
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),
     			xls.getCellValue("Currency", "Value"),
-	    		"Validate One way International Two Adualt With Economy"}};
+	    		"Validate One way International Two Adult With Economy"}};
 	}
 
 	

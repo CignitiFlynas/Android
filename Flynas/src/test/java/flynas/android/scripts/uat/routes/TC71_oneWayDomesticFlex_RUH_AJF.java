@@ -65,7 +65,7 @@ public class TC71_oneWayDomesticFlex_RUH_AJF extends BookingPageFlow{
 			handleRatingRequest();
 			homepage.select_Managebooking("registered");
 			registeredUsrManageFlight(PNRnumber);
-			registeredUsrcancelFlight();
+			cancelFlights("All");
 			confirmChanges();
 			verifyConfirmchanges();
 			

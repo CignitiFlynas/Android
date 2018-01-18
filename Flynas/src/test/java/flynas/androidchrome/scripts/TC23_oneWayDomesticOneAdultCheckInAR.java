@@ -8,8 +8,8 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
-import flynas.web.workflows.BookingPageFlow;
+import flynas.androidchrome.testObjects.BookingPageLocators;
+import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC23_oneWayDomesticOneAdultCheckInAR extends BookingPageFlow{
 	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData"),"FL_WEB_23");
@@ -28,7 +28,7 @@ public class TC23_oneWayDomesticOneAdultCheckInAR extends BookingPageFlow{
 			deptDate = pickDate(deptDate);
 			
 			click(BookingPageLocators.Arabic_pdctn_AR("العربية"), "Arabic Language");
-			inputBookingDetails_Arabic(tripType,origin, dest, deptDate , origin2, departure2, retdate,Adult, Child, infant,"","","");
+			inputBookingDetails_Arabic(tripType,origin, dest, deptDate , origin2, departure2, retdate,Adult, Child, infant,"","");
 			selectClass(strBookingClass,tripType);
 			String lastname[]=inputPassengerDetails_Arabic(FlightType, totalpass, nationality, Doctypr,docNumber,"", Mobile, email, "", "", "");
 			Baggage_Extra(tripType);
@@ -82,7 +82,7 @@ public class TC23_oneWayDomesticOneAdultCheckInAR extends BookingPageFlow{
 	    		"Credit Card",
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),"",
-	    		"Validate One way Domestic with one Adualt CheckIn In AR"}};
+	    		"Validate One way Domestic with one Adult CheckIn In AR"}};
 	}
 
 }

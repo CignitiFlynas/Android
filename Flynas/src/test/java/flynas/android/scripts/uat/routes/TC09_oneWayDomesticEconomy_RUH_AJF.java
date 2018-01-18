@@ -68,7 +68,7 @@ public class TC09_oneWayDomesticEconomy_RUH_AJF extends BookingPageFlow{
 			handleRatingRequest();
 			homepage.select_Managebooking("registered");
 			registeredUsrManageFlight(PNRnumber);
-			registeredUsrcancelFlight();
+			cancelFlights("All");
 			confirmChanges();
 			verifyConfirmchanges();
 			

@@ -8,7 +8,7 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
+import flynas.androidchrome.testObjects.BookingPageLocators;
 import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC12_PayWithCreditShell extends BookingPageFlow{
@@ -45,7 +45,7 @@ public class TC12_PayWithCreditShell extends BookingPageFlow{
 			String strPNR = strpnr.trim();
 			System.out.println(strPNR);				
 			searchFlight(strPNR, email, "", "");
-			cancelFlight();
+			cancelFlight("All");
 			driver.get(configProps.getProperty("URL"));
 			inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, retdate,Audalt, Child, infant,promo,Currency,paymenttype);
 			selectClass(strBookingClass, tripType);

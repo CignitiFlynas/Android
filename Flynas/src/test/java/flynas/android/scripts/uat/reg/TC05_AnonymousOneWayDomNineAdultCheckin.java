@@ -18,7 +18,7 @@ public class TC05_AnonymousOneWayDomNineAdultCheckin extends BookingPageFlow {
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_05_AnonymousOneWayDomNineAdultCheckin(String tripType, String origin, String dest, 
-			String deptDate, String origin2,String departure2, String retdate,String Audalt,String Child,String infant, String promo, 
+			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, String promo, 
 			String strBookingClass,	String FlightType,String totalpass,String namtionality,String Doctypr,String docNumber,
 			String naSmiles,String Mobile,String email ,String SelectSeat,String paymenttype,String bookingtype,String newDate,
 			String charity,String Currency, String Description
@@ -33,7 +33,8 @@ public class TC05_AnonymousOneWayDomNineAdultCheckin extends BookingPageFlow {
 			Homepage homepage = new Homepage();
 			homepage.select_Bookflights("Anonymous");
 			
-			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2,rtrndate,Audalt, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2,rtrndate,Adult, Child, infant,promo,Currency);
+			clickFindFlightsBtn();
 			selectClass(strBookingClass, tripType);
 			String[] passenger = inputPassengerDetails(FlightType,totalpass,namtionality,Doctypr,docNumber, naSmiles,Mobile,email,"","","");
 			Baggage(bookingtype,totalpass);
@@ -89,7 +90,7 @@ public class TC05_AnonymousOneWayDomNineAdultCheckin extends BookingPageFlow {
 	    		xls.getCellValue("New Date", "Value"),
     			xls.getCellValue("Charity Donation", "Value"),
     			xls.getCellValue("Currency", "Value"),
-	    		"Validate One way Domestic with 9 Adualt Checkin"}};
+	    		"Validate One way Domestic with 9 Adult Checkin"}};
 	}
 
 }

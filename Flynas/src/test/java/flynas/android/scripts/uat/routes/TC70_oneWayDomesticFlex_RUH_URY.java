@@ -65,7 +65,7 @@ public class TC70_oneWayDomesticFlex_RUH_URY extends BookingPageFlow{
 			handleRatingRequest();
 			homepage.select_Managebooking("registered");
 			registeredUsrManageFlight(PNRnumber);
-			registeredUsrcancelFlight();
+			cancelFlights("All");
 			confirmChanges();
 			verifyConfirmchanges();
 			

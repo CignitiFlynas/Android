@@ -11,8 +11,8 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
-import flynas.web.workflows.BookingPageFlow;
+import flynas.androidchrome.testObjects.BookingPageLocators;
+import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC31_VerifingBoardingPassVlues extends BookingPageFlow{
 	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData"),"TC04_oneWayDomAdultCheckin");
@@ -104,7 +104,7 @@ public class TC31_VerifingBoardingPassVlues extends BookingPageFlow{
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),"",
     			configProps.getProperty("browserType"),
-	    		"Validate One way Domestic with one Adualt"}};
+	    		"Validate One way Domestic with one Adult"}};
 	}
 
 }

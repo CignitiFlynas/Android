@@ -14,9 +14,11 @@ public class BookingPageLocators extends ActionEngine{
 	public static By tittleBack = By.xpath("//*[@resource-id='com.flynas.android.app:id/titleBack']");
 	public static By done = By.xpath("//*[@resource-id='com.flynas.android.app:id/btnSelectPaxNumDone']");
 	public static By cancel = By.xpath("//*[@resource-id='com.flynas.android.app:id/btnSelectPaxNumCancel']");
-	public static By  elmWithText(String lable)
-	{
+	public static By  elmWithText(String lable){
 		return By.xpath("//*[@text='"+lable+"']");
+	}
+	public static By  Alert(String message){
+		return By.xpath("//*[contains(@text,'"+message+"')]");
 	}
 	
  	//booking page
@@ -55,8 +57,10 @@ public class BookingPageLocators extends ActionEngine{
 	public static By Audaltplusbutton = By.id("com.flynas.android.app:id/adultPlusButton");
 	public static By childplusbutton = By.id("com.flynas.android.app:id/childPlusButton");
 	public static By infantplusbutton = By.id("com.flynas.android.app:id/infantPlusButton");
+	public static By smilePointsbtn = By.xpath("//*[@resource-id='com.flynas.android.app:id/vgSearchFlightPayWithSmilePoints']");
 	public static By findFlights = By.id("com.flynas.android.app:id/vgSearchFlightFindFlights");
 	
+	//SettingsPage
 	public static By Currency = By.id("com.flynas.android.app:id/vgSelectCurrency");
 	public static By currencytype(String Currency) {
 		return By.xpath("//*[@text='"+Currency+"']");
@@ -159,6 +163,7 @@ public class BookingPageLocators extends ActionEngine{
 	public static By flexPrice = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_flex_price']");
 	public static By bussPrice = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_business_price']");
 	public static By cartSummaryBalance = By.xpath("//*[@resource-id='com.flynas.android.app:id/cartSummaryDueBalance']");
+	
 	//Input Passenger Details
 	public static String passType = "//div[@class='pass_tab']/div[#]/h3";
 
@@ -225,8 +230,16 @@ public class BookingPageLocators extends ActionEngine{
 	public static By tabCreditCard = By.xpath("//a/div[text()='Credit Card']");
 	public static By tabNasCredit = By.xpath("//*[@resource-id='com.flynas.android.app:id/paymentType3ButtonInner']");
 	public static By tabSadad = By.xpath("//*[@resource-id='com.flynas.android.app:id/paymentType2ButtonInner']");
+	public static By tabVoucher = By.xpath("//*[@resource-id='com.flynas.android.app:id/paymentType5ButtonInner']");
 	public static By creditShellAmount = By.xpath("//*[@resource-id='com.flynas.android.app:id/creditShellAmount']");
 	public static By totalSAR = By.xpath("//*[@resource-id='com.flynas.android.app:id/paymentPriceSummaryText']");
+	
+	public static By tabNaSmiles = By.xpath("//*[@resource-id='com.flynas.android.app:id/paymentType4Button']");
+	public static By naSmileId = By.xpath("//*[@resource-id='com.flynas.android.app:id/nasmilesUsername']");
+	public static By naSmilepwd = By.xpath("//*[@resource-id='com.flynas.android.app:id/nasmilesPassword']");
+	public static By naSmileslogin = By.xpath("//*[contains(@text,'Log-in')]");
+	public static By redeem = By.xpath("//*[@resource-id='com.flynas.android.app:id/nasmilesRedeem']");
+	public static By naSmilesRfnd = By.xpath("//*[@resource-id='com.flynas.android.app:id/paymentCreditShellRefund']");
 	
 	public static By terms = By.xpath("//*[@resource-id='com.flynas.android.app:id/paymentTermsCheckBox']");
 	public static By pnrstatus = By.xpath("//*[@resource-id='com.flynas.android.app:id/confirmationStatus']");
@@ -305,9 +318,18 @@ public class BookingPageLocators extends ActionEngine{
 	public static By ok=By.xpath("//*[@resource-id='com.flynas.android.app:id/buttonDefaultPositive']");
 	
 	//checkins
+	public static By checkin_title = By.xpath("//*[@text='Check-in']");
 	public static By checkInReference = By.id("com.flynas.android.app:id/etOnlineCheckinPNR");
 	public static By lastname_incheckin = By.id("com.flynas.android.app:id/etOnlineCheckinLastname");
 	public static By checkin_btn = By.id("com.flynas.android.app:id/btnOnlineCheckin");
+	public static By  checkin(String PNR)
+	{
+		return By.xpath("//*[@text='"+PNR+"']/parent::android.widget.LinearLayout[@index=1]/parent::android.widget.LinearLayout[@index=0]/following-sibling::android.widget.LinearLayout[@index=1]/android.widget.TextView[@index='0']");
+	}
+	public static By  MMB(String PNR)
+	{
+		return By.xpath("//*[@text='"+PNR+"']/parent::android.widget.LinearLayout[@index=1]/parent::android.widget.LinearLayout[@index=0]/following-sibling::android.widget.LinearLayout[@index=1]/android.widget.TextView[@index='0']");
+	}
 	
 	public static By checkInFlight = By.xpath("//*[@resource-id='com.flynas.android.app:id/extraFlightTickBox']");
 	public static By passengers_incheckin = By.xpath("//*[@resource-id='com.flynas.android.app:id/onlineCheckinPassengerLineTickBox']");
@@ -330,5 +352,14 @@ public class BookingPageLocators extends ActionEngine{
 	{
 		return By.xpath("//*[@text='"+PNR+"']/parent::android.widget.LinearLayout[@index=1]/parent::android.widget.LinearLayout[@index=0]/following-sibling::android.widget.LinearLayout[@index=1]/android.widget.TextView[@index='0']");
 	}
+	
+	
+	//MyProfile page
+	public static By crntpswd = By.id("com.flynas.android.app:id/profileRegisterCurrentPassword");
+	public static By newpswd = By.id("com.flynas.android.app:id/profileRegisterPassword");
+	public static By prflmobile = By.id("com.flynas.android.app:id/profileContactMobile");
+	public static By prflupdtbtn = By.id("com.flynas.android.app:id/profileRegisterUpdateButton");
+	public static By cntctupdtbtn = By.id("com.flynas.android.app:id/profileContactUpdateButton");
+	
 	
 }

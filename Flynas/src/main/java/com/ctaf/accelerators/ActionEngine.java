@@ -55,7 +55,7 @@ import org.testng.Assert;
 
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
+import flynas.android.testObjects.BookingPageLocators;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -102,11 +102,11 @@ public class ActionEngine extends TestEngine {
 			e.printStackTrace();
 		} finally {
 			if (!flag) {
-				Reporter.failureReport("Click", "Unable to click on "
+				Reporter.failureReport("Click the element "+locatorName, "Unable to click "
 						+ locatorName);
 				return flag;
 			} else if (b && flag) {
-				Reporter.SuccessReport("Click", "Successfully clicked on "
+				Reporter.SuccessReport("Click the element "+locatorName, "Successfully clicked on "
 						+ locatorName);
 			}
 		}
@@ -139,11 +139,11 @@ public class ActionEngine extends TestEngine {
 			return false;
 		} finally {
 			if (!flag) {
-				Reporter.failureReport("Check IsElementPresent ", locatorName
+				Reporter.failureReport("Checking if "+locatorName+" is present on the screen", locatorName
 						+ " Element is not present on the page");
 				Assert.assertTrue(flag,"Unable find the element "+ locatorName);
 			} else if (b && flag) {
-				Reporter.SuccessReport("IsElementPresent ",
+				Reporter.SuccessReport("Checking if "+locatorName+" is present on the screen",
 						"Able to locate element " + locatorName);
 			}
 
@@ -402,7 +402,7 @@ public class ActionEngine extends TestEngine {
 		boolean flag = false;
 		try { 
 			
-			WebElement we = driver.findElement(locator);
+			MobileElement we = (MobileElement) driver.findElement(locator);
 			we.clear();
 			we.sendKeys(testdata);
 			flag = true;
@@ -418,13 +418,11 @@ public class ActionEngine extends TestEngine {
 			e.printStackTrace();   
 		} finally {
 			if (!flag) {
-				Reporter.failureReport("Type ",
-						"Data typing action is not perform on " + locatorName
-								+ " with data is " + testdata);
+				Reporter.failureReport("Entering data in "+locatorName,
+						"Could not enter the data : "+ testdata+" in to " + locatorName);
 			} else if (b && flag) {
-				Reporter.SuccessReport("Type ",
-						"Data typing action is performed on " + locatorName
-								+ " with data is " + testdata);
+				Reporter.SuccessReport("Entering data in "+locatorName,
+						"Successfully entered the data : " +testdata+ " in to "+ locatorName);
 			}
 		}
 		return flag;
@@ -615,12 +613,12 @@ public class ActionEngine extends TestEngine {
 			return false;
 		} finally {
 			if (!flag) {
-				Reporter.failureReport("RightClick ",
-						"RightClick action is not perform on " + locatorName);
+				Reporter.failureReport("RightClick on the element "+locatorName,
+						"RightClick action is not performed");
 
 			} else if (b && flag) {
-				Reporter.SuccessReport("RightClick ",
-						"RightClick Action is Done on " + locatorName);
+				Reporter.SuccessReport("RightClick on the element "+locatorName,
+						"RightClick action is performed " + locatorName);
 			}
 		}
 	}
@@ -691,10 +689,10 @@ public class ActionEngine extends TestEngine {
 			return false;
 		} finally {
 			if (!flag) {
-				Reporter.failureReport("WaitForElementPresent ",
+				Reporter.failureReport("Wait for the element "+locator+" to be present",
 						"Falied to locate element " + locator);
 			} else if (b && flag) {
-				Reporter.SuccessReport("WaitForElementPresent ",
+				Reporter.SuccessReport("Wait for the element "+locator+" to be present",
 						"Successfully located element " + locator);
 			}
 		}

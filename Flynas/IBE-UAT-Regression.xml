@@ -5,11 +5,11 @@
     
 	<test name="IBE-UAT-Regression" >
 	    
-	   	<!--	<groups>
+	   		<groups>
 				<run>
 					<include name="chrome"/>
 				</run>
-			</groups> -->
+			</groups>
 		  
 			<classes>	 	
 					<!-- ********************************Chrome*************************************************** -->

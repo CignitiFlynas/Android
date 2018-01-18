@@ -69,7 +69,7 @@ public class TC134_oneWayDomesticBusiness_RUH_ABT extends BookingPageFlow{
 			handleRatingRequest();
 			homepage.select_Managebooking("registered");
 			registeredUsrManageFlight(PNRnumber);
-			registeredUsrcancelFlight();
+			cancelFlights("All");
 			confirmChanges();
 			verifyConfirmchanges();
 			

@@ -8,7 +8,7 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
+import flynas.androidchrome.testObjects.BookingPageLocators;
 import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC04_oneWayDomOneAdultCheckin extends BookingPageFlow{
@@ -83,7 +83,7 @@ public class TC04_oneWayDomOneAdultCheckin extends BookingPageFlow{
 	    		"Credit Card",
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),"",
-	    		"Validate One way Domestic with one Adualt"}};
+	    		"Validate One way Domestic with one Adult"}};
 	}
 
 }

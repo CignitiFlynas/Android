@@ -14,6 +14,9 @@ public class HomePageLocators extends ActionEngine{
 	public static By pasword = By.xpath("//*[@resource-id='com.flynas.android.app:id/loginViewPasswordText']");
 	public static By Login_btn = By.xpath("//*[@resource-id='com.flynas.android.app:id/loginViewLoginBtn']");
 	public static By logout_btn = By.xpath("//*[@text='Log Out']");
+	public static By register = By.xpath("//*[@resource-id='com.flynas.android.app:id/navDrawRegister']");
+	public static By myProfile = By.xpath("//*[@resource-id='com.flynas.android.app:id/navDrawMyProfile']");
+	
 	
 	//Icon Locators
 	public static By bookFlights = By.xpath("//*[@resource-id='com.flynas.android.app:id/vgTabBookUnloggedin']");

@@ -12,8 +12,8 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
-import flynas.web.workflows.BookingPageFlow;
+import flynas.androidchrome.testObjects.BookingPageLocators;
+import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC18_corporateLoginRToneAdultCancelFlight extends BookingPageFlow{
 	
@@ -57,7 +57,7 @@ public class TC18_corporateLoginRToneAdultCancelFlight extends BookingPageFlow{
 			String strPNR = strpnr.trim();
 			System.out.println(strPNR);
 			searchFlight(strPNR, username+"@Gmail.com", "", "");
-			cancelFlight("All");
+			//cancelFlight("All");
 									
 			Reporter.SuccessReport("TC18_corporateLoginRToneAdultCancelFlight", "Pass");
 			

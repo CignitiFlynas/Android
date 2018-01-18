@@ -10,8 +10,8 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
-import flynas.web.workflows.BookingPageFlow;
+import flynas.androidchrome.testObjects.BookingPageLocators;
+import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC22_resetPasswordusingmyProfile extends BookingPageFlow{
 	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData"),"FL_WEB_22");
@@ -42,7 +42,7 @@ public class TC22_resetPasswordusingmyProfile extends BookingPageFlow{
 			type(BookingPageLocators.newpwd, newPwd, "New Password");
 			type(BookingPageLocators.cnfmnewPwd, newPwd, "Conform New Password");
 			click(BookingPageLocators.ConfirmPwdBtn, "Confirm");
-			waitforElement(BookingPageLocators.pwdChngeComnt);
+			waitforElement(BookingPageLocators.pwdChngeConmtn);
 			waitUtilElementhasAttribute(BookingPageLocators.body);
 			click(BookingPageLocators.ok, "OK");
 			click(BookingPageLocators.update_Btn, "Update");

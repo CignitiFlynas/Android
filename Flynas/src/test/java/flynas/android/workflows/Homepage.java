@@ -1,8 +1,10 @@
 package flynas.android.workflows;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import com.ctaf.utilities.Reporter;
 
-import flynas.android.testObjects.HomePageLocators;
+import flynas.android.testObjects.*;
 
 public class Homepage extends HomePageLocators{
 	
@@ -42,7 +44,7 @@ public class Homepage extends HomePageLocators{
 	{
 //		BookingPageFlow BF = new BookingPageFlow();
 //		BF.Handlepopup();
-		waitForElementPresent(HomePageLocators.tittleMenu, "Online CheckIn");
+		waitForElementPresent(HomePageLocators.tittleMenu, "Menu Icon");
 		click(HomePageLocators.tittleMenu, "TittleMenu");
 	}
 	public void Click_login() throws Throwable
@@ -62,18 +64,55 @@ public class Homepage extends HomePageLocators{
 		
 	}catch(Exception e){
 		Reporter.failureReport("Login failure", "Unable to login");
-		
+		}
 	}
-		
+	
+	public void verifyLoginSuccess(boolean expected) throws Throwable{
+		if(isElementPresent(HomePageLocators.rgstrdUsrIcnBF)==expected)
+		Reporter.SuccessReport("verify Login", " login "+expected+" Successfull");
+		else
+			Reporter.failureReport("verify Login", " login "+expected+" failed");
 	}
+	
+	public void Click_myProfile() throws Throwable
+	{
+		waitForElementPresent(HomePageLocators.myProfile, "My Profile link");
+		click(HomePageLocators.myProfile, "My Profile link");
+	}
+	
 	public void Click_logout() throws Throwable
 	{
-		waitForElementPresent(HomePageLocators.logout_btn, "Login");
+		Thread.sleep(1000);
+		scrollToText("Log Out");
 		click(HomePageLocators.logout_btn, "Logout");
 	}
+	
 	public void click_Settings() throws Throwable {
 		waitForElementPresent(HomePageLocators.settingsIcn, "Login");
 		click(HomePageLocators.settingsIcn, "Settings Icon");
+	}
+	
+	public void  lockAccount(String username) throws Throwable
+	{
+		try{
+		String password = RandomStringUtils.random(8, true, true);
+	
+		for(int i=0;i<=10;i++){
+			type(HomePageLocators.email, username, "Email");
+			type(HomePageLocators.pasword, password, "Password");
+			click(HomePageLocators.Login_btn, "Login");
+			//if(i!=10)
+			//verifyAlertPopup();
+			}
+			Reporter.SuccessReport("Lock account", "Lock account Successful");
+		}catch(Exception e){
+			Reporter.SuccessReport("Lock account", "Lock account Unsuccessful");
+		}
+					
+	}
+	public void Click_Register() throws Throwable {
+		waitForElementPresent(HomePageLocators.register, "Register");
+		click(HomePageLocators.register, "Register");
 	}
 
 }

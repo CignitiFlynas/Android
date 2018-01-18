@@ -1,0 +1,56 @@
+2018-01-17 15:01:48-main--INFO -com.ctaf.accelerators.TestEngine:Android
+2018-01-17 15:02:14-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_2a_oneWayDomesticBusinessCC
+2018-01-17 15:26:31-main--INFO -com.ctaf.accelerators.TestEngine:Android
+2018-01-17 15:26:52-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_a_memberRegistration
+2018-01-17 15:35:45-main--INFO -com.ctaf.accelerators.TestEngine:Android
+2018-01-17 15:36:07-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_a_memberRegistration
+2018-01-17 15:38:40-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:38:45-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_b_verifyRegistrationFailurewithExistingEmailID
+2018-01-17 15:41:19-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:41:24-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_c_verifyChildRegistrationNbookingFailure
+2018-01-17 15:43:46-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:43:50-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_d_UpdateProfiledetails
+2018-01-17 15:45:24-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:45:28-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_e_VerifyAccLockOn10IncorrectPswdEntries
+2018-01-17 15:48:01-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:48:06-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_f_UpdatePasswordInProfile
+2018-01-17 15:50:15-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:50:20-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_2a_oneWayDomesticBusinessCC
+2018-01-17 15:53:03-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:53:08-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_b_oneWayDomesticBusiness1AdultCC
+2018-01-17 15:56:03-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:56:07-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_c_RTDomesticSimple1AdultCC
+2018-01-17 15:57:42-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:57:47-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-17 15:59:23-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 15:59:28-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-17 16:00:58-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:01:03-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-01-17 16:02:37-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:02:42-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_2g_oneWayDomesticEcoSADAD
+2018-01-17 16:07:11-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:07:16-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_3a_AnonymousOneWayDomesticSimpleChangeDate
+2018-01-17 16:12:55-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:12:58-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:13:02-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_03b_AnonymousOneWayDomesticSimpleChangeDate
+2018-01-17 16:18:52-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:18:55-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:18:59-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_4a_AnonymousOneWayDomOneAdultCheckin
+2018-01-17 16:25:11-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:25:14-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:25:18-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-01-17 16:30:01-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:30:06-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail
+2018-01-17 16:37:02-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:37:05-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:37:10-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_d_AnonymousOneWayIntlExtraIntlMultiPaxCheckinFail2
+2018-01-17 16:43:59-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:44:01-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:44:06-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_e_AnonymousOneWayIntlBusinessIntlMultiPaxCheckinFail
+2018-01-17 16:50:46-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:50:50-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-17 16:50:55-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_05_AnonymousOneWayDomNineAdultCheckin
+2018-01-17 17:50:17-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-17 17:50:41-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_b_oneWayDomesticBusiness1AdultCC
+2018-01-17 18:00:08-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-17 18:00:28-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_b_oneWayDomesticBusiness1AdultCC

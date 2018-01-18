@@ -17,7 +17,7 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_12_PayWithCreditShell(String tripType, String origin, String dest, 
-			String deptDate, String origin2,String departure2, String retdate,String Audalt,String Child,String infant, 
+			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, 
 			String promo, String strBookingClass,
 			String FlightType,String totalpass,String namtionality,String Doctypr,String docNumber,
 			String naSmiles,String Mobile,String email ,String SelectSeat,String paymenttype,String bookingtype, 
@@ -41,7 +41,8 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
 			homepage.Click_login();
 			homepage.Login(username,password);
 			homepage.select_Bookflights("registered");
-			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Audalt, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Adult, Child, infant,promo,Currency);
+			clickFindFlightsBtn();
  			selectClass(strBookingClass, tripType);
  			continueOnPsngrDtls();
  			continueOnExtras();
@@ -53,14 +54,15 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
 			handleRatingRequest();
 			homepage.select_Managebooking("Registered");
 			registeredUsrManageFlight(strPNR);
-			registeredUsrcancelFlight();
+			cancelFlights("All");
 			confirmChanges();
 			verifyConfirmchanges();
 			
 			navigatetoHmPg();
 			handleRatingRequest();
 			homepage.select_Bookflights("Registered");
-			inputBookingDetails(tripType, origin, departure2, depDate,"", "", rtrndate,Audalt, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, departure2, depDate,"", "", rtrndate,Adult, Child, infant,promo,Currency);
+			clickFindFlightsBtn();
 			selectClass(strBookingClass, tripType);
 			continueOnPsngrDtls();
 			Baggage(bookingtype, totalpass);
@@ -109,7 +111,7 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
     			xls.getCellValue("Currency", "Value"),
     			xls.getCellValue("Payment Type2", "Value"),
 
-	    		"Validate One way Domestic with one Adualt"}};
+	    		"Validate One way Domestic with one Adult"}};
 	}
 	
 

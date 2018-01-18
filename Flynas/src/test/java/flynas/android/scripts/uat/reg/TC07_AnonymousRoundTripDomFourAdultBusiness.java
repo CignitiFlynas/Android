@@ -17,7 +17,7 @@ public class TC07_AnonymousRoundTripDomFourAdultBusiness extends BookingPageFlow
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_07_AnonymousRoundTripDomFourAdultBusiness(String tripType, String origin, String dest, 
-			String deptDate, String origin2,String departure2, String retdate,String Audalt,String Child,String infant, 
+			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, 
 			String promo, 
 			String strBookingClass,
 			String FlightType,String totalpass,String namtionality,String Doctypr,String docNumber,
@@ -35,8 +35,9 @@ public class TC07_AnonymousRoundTripDomFourAdultBusiness extends BookingPageFlow
 			Homepage homepage = new Homepage();
 						
 			homepage.select_Bookflights("Anonymous");
-			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Audalt, Child, infant,promo,Currency);
- 			selectClass(strBookingClass, tripType);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Adult, Child, infant,promo,Currency);
+			clickFindFlightsBtn();
+			selectClass(strBookingClass, tripType);
  			inputPassengerDetails(FlightType,totalpass,namtionality,Doctypr,docNumber, naSmiles,Mobile,email,"","","");
  			continueOnExtras();
  			continueOnSeatSelection();
@@ -62,7 +63,7 @@ public class TC07_AnonymousRoundTripDomFourAdultBusiness extends BookingPageFlow
 	    		xls.getCellValue("Nationality", "Value"),xls.getCellValue("Document Type", "Value"),xls.getCellValue("Doc Number", "Value"),
 	    		"",xls.getCellValue("Mobile", "Value"),xls.getCellValue("Email Address", "Value"),xls.getCellValue("Select Seat", "Value"),
 	    		xls.getCellValue("Payment Type", "Value"),"",xls.getCellValue("Charity Donation", "Value"),xls.getCellValue("Currency", "Value"),
-	    		"Validate Round Trip Domestic Four Adualt With Business"}};
+	    		"Validate Round Trip Domestic Four Adult With Business"}};
 	}
 
 

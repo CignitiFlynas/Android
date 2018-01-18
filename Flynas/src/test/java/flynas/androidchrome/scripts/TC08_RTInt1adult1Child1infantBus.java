@@ -9,7 +9,7 @@ import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
 import flynas.androidchrome.workflows.BookingPageFlow;
-import flynas.web.testObjects.BookingPageLocators;
+import flynas.androidchrome.testObjects.BookingPageLocators;
 
 public class TC08_RTInt1adult1Child1infantBus extends BookingPageFlow {
 		

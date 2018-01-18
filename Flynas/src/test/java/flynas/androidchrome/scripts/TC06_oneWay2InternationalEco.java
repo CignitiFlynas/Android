@@ -9,7 +9,7 @@ import com.ctaf.support.ConfiguratorSupport;
 import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
-import flynas.web.testObjects.BookingPageLocators;
+import flynas.androidchrome.testObjects.BookingPageLocators;
 import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC06_oneWay2InternationalEco extends BookingPageFlow {

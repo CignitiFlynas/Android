@@ -94,6 +94,7 @@ public class BookingPageLocators extends ActionEngine{
 	public static By stafCnformed = By.xpath("//button[@class='btn selectflightbtn col3']");
 	public static By flighttable = By.xpath("//table[@class='table flight_table']");
 	public static By priceBeforeChange = By.xpath("//b[contains(text(),'Price before change')]/following::span[1]");
+	public static By Totalprice = By.xpath("//span[@class='pull-right total']");
 	
 	//Input Passenger Details
 	public static By passengerDetailsTittle = By.xpath("//h1[contains(text(), 'Passenger and Document Details') or ./text()='معلومات المسافر']");
@@ -210,6 +211,7 @@ public class BookingPageLocators extends ActionEngine{
 	public static By cancelflightBtn = By.xpath("//button[@class='btn btn-primary']");
 	public static By conformCharges = By.xpath("//a[contains(text(),'Click here to confirm changes')]");
 	public static By conformedAftercharges = By.xpath("//b[contains(text(),'Confirmed')]");
+	public static By cancelled = By.xpath("//b[contains(text(),'Cancelled')]");
 	public static By manageMyBookingTittle = By.xpath("//h1[contains(text(),'Manage my booking')]");
 	/*
 	 * change flight elements 

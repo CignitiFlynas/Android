@@ -8,8 +8,8 @@ import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
-import flynas.web.testObjects.BookingPageLocators;
-import flynas.web.workflows.BookingPageFlow;
+import flynas.androidchrome.testObjects.BookingPageLocators;
+import flynas.androidchrome.workflows.BookingPageFlow;
 
 public class TC25_oneWayDomesticOneAdultCheckInTR extends BookingPageFlow{
 	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData"),"FL_WEB_25");
@@ -79,7 +79,7 @@ public class TC25_oneWayDomesticOneAdultCheckInTR extends BookingPageFlow{
 	    		"Credit Card",
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),"",
-	    		"Validate One way Domestic with one Adualt CheckIn in TR"}};
+	    		"Validate One way Domestic with one Adult CheckIn in TR"}};
 	}
 
 }

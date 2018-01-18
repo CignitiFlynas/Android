@@ -1,0 +1,6 @@
+2018-01-16 19:32:54-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-16 19:33:31-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-01-16 19:33:57-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_01_a_memberRegistration
+2018-01-16 19:36:34-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-01-16 19:38:50-main--INFO -com.ctaf.accelerators.TestEngine:Android
+2018-01-16 19:39:08-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_2a_oneWayDomesticBusinessCC

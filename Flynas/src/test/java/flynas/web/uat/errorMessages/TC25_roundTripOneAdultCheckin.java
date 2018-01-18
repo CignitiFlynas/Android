@@ -83,7 +83,7 @@ public class TC25_roundTripOneAdultCheckin extends BookingPageFlow{
 	    		"Credit Card",
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),"",
-	    		"Validate Round Trip Domestic with one Adualt CheckIn"}};
+	    		"Validate Round Trip Domestic with one Adult CheckIn"}};
 	}
 
 }

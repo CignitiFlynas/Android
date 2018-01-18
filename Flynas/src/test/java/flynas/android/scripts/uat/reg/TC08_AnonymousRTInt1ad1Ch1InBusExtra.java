@@ -17,7 +17,7 @@ public class TC08_AnonymousRTInt1ad1Ch1InBusExtra extends BookingPageFlow{
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_08_AnonymousRTInt1ad1Ch1InBusExtra(String tripType, String origin, String dest, String deptDate, String origin2,
-			String departure2, String retdate,String Audalt,String Child,String infant,String promo,String strBookingClass,
+			String departure2, String retdate,String Adult,String Child,String infant,String promo,String strBookingClass,
 			String FlightType,String totalpass,String namtionality,String Doctypr,String docNumber,String naSmiles,String Mobile,
 			String email ,String SelectSeat,String paymenttype,String bookingtype,String charity,String Currency, String Description
 			) throws Throwable {
@@ -32,8 +32,9 @@ public class TC08_AnonymousRTInt1ad1Ch1InBusExtra extends BookingPageFlow{
 			Homepage homepage = new Homepage();
 			
 			homepage.select_Bookflights("Anonymous");
-			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Audalt, Child, infant,promo,Currency);
- 			selectClass(strBookingClass, tripType);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Adult, Child, infant,promo,Currency);
+			clickFindFlightsBtn();
+			selectClass(strBookingClass, tripType);
 			inputPassengerDetails(FlightType,totalpass,namtionality,Doctypr,docNumber, naSmiles,Mobile,email,"","","");
 			//Selecting baggage for each passenger on extras screen
 			Baggage(bookingtype, totalpass);
@@ -64,7 +65,7 @@ public class TC08_AnonymousRTInt1ad1Ch1InBusExtra extends BookingPageFlow{
 	    		xls.getCellValue("Nationality", "Value"),xls.getCellValue("Document Type", "Value"),xls.getCellValue("Doc Number", "Value"),
 	    		"",xls.getCellValue("Mobile", "Value"),xls.getCellValue("Email Address", "Value"),xls.getCellValue("Select Seat", "Value"),
 	    		xls.getCellValue("Payment Type", "Value"),"",xls.getCellValue("Charity Donation", "Value"),	xls.getCellValue("Currency", "Value"),
-	    		"Validate Round Trip International one Adualt one Child one Infant with Business"}};
+	    		"Validate Round Trip International one Adult one Child one Infant with Business"}};
 	}
 
 

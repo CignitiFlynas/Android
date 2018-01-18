@@ -84,7 +84,7 @@ public class TC23_oneWayDomesticOneAdultCheckInAR extends BookingPageFlow{
 	    		"Credit Card",
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),"",
-	    		"Validate One way Domestic with one Adualt CheckIn In AR"}};
+	    		"Validate One way Domestic with one Adult CheckIn In AR"}};
 	}
 
 }
