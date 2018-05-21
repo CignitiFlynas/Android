@@ -13,10 +13,10 @@ import flynas.android.workflows.*;
 public class TC01_b_verifyRegistrationFailurewithExistingEmailID extends BookingPageFlow{
 	
 	@Test(dataProvider = "testData",groups={"Android"})
-	public  void TC_01_b_verifyRegistrationFailurewithExistingEmailID(String Description) throws Throwable {
+	public  void TC_01_b_verifyRegistrationFailurewithExistingEmailID(String description) throws Throwable {
 		try {
 			
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			//instantiating page objects
 			
 			String[] Credentials = pickCredentials("UserCredentials");

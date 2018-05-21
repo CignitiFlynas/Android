@@ -13,18 +13,18 @@ import flynas.android.workflows.BookingPageFlow;
 import flynas.android.workflows.Homepage;
 
 public class TC12_PayWithCreditShell extends BookingPageFlow {
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"FL_WEB_12");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"FL_WEB_12");
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_12_PayWithCreditShell(String tripType, String origin, String dest, 
 			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, 
-			String promo, String strBookingClass,
-			String FlightType,String totalpass,String namtionality,String Doctypr,String docNumber,
-			String naSmiles,String Mobile,String email ,String SelectSeat,String paymenttype,String bookingtype, 
-			String charity,String Currency, String payment2 ,String Description
+			String promo, String bookingClass, String bundle, 
+			String flightType,String totalpass,String nationality,String docType,String docNumber,
+			String naSmiles,String Mobile,String email ,String selectSeat,String paymentType,String bookingType, 
+			String charity,String currency, String payment2 ,String description
 			) throws Throwable {
 		try {
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			// Handlepopup();
 			
 			Homepage homepage = new Homepage();
@@ -41,13 +41,13 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
 			homepage.Click_login();
 			homepage.Login(username,password);
 			homepage.select_Bookflights("registered");
-			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Adult, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Adult, Child, infant,promo,currency);
 			clickFindFlightsBtn();
- 			selectClass(strBookingClass, tripType);
+ 			selectClass(bookingClass, bundle);
  			continueOnPsngrDtls();
  			continueOnExtras();
 			continueOnSeatSelection();
-			payment(paymenttype,"");
+			payment(paymentType,"");
 			String strPNR = getReferenceNumber();
 			System.out.println(strPNR);				
 			navigatetoHmPg();
@@ -61,11 +61,11 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
 			navigatetoHmPg();
 			handleRatingRequest();
 			homepage.select_Bookflights("Registered");
-			inputBookingDetails(tripType, origin, departure2, depDate,"", "", rtrndate,Adult, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, departure2, depDate,"", "", rtrndate,Adult, Child, infant,promo,currency);
 			clickFindFlightsBtn();
-			selectClass(strBookingClass, tripType);
+			selectClass(bookingClass, bundle);
 			continueOnPsngrDtls();
-			Baggage(bookingtype, totalpass);
+			Baggage(bookingType, totalpass);
 			continueOnExtras();
 			continueOnSeatSelection();
 			payment(payment2,strPNR);
@@ -89,13 +89,14 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
 	    		xls.getCellValue("Destination", "Value"),
 	    		xls.getCellValue("Departure Date", "Value"),
 	    		"",
-	    		xls.getCellValue("Destination2", "Value"),
+	    		xls.getCellValue("Destination", "Value2"),
 	    		xls.getCellValue("Return Date", "Value"),
 	    		xls.getCellValue("Adults Count", "Value"),
 	    		xls.getCellValue("Child Count", "Value"),
 	    		xls.getCellValue("Infant Count", "Value"),
 	    		xls.getCellValue("Promo", "Value"),
 	    		xls.getCellValue("Booking Class", "Value"),
+	    		xls.getCellValue("Bundle", "Value"),
 	    		xls.getCellValue("Flight Type", "Value"),
 	    		xls.getCellValue("Total Passenger", "Value"),
 	    		xls.getCellValue("Nationality", "Value"),
@@ -108,7 +109,7 @@ public class TC12_PayWithCreditShell extends BookingPageFlow {
 	    		xls.getCellValue("Payment Type", "Value"),
 	    		"",
     			xls.getCellValue("Charity Donation", "Value"),
-    			xls.getCellValue("Currency", "Value"),
+    			xls.getCellValue("currency", "Value"),
     			xls.getCellValue("Payment Type2", "Value"),
 
 	    		"Validate One way Domestic with one Adult"}};

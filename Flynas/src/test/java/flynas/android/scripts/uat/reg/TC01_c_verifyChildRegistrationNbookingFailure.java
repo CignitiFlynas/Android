@@ -12,15 +12,15 @@ import com.ctaf.utilities.Reporter;
 import flynas.android.workflows.*;
 
 public class TC01_c_verifyChildRegistrationNbookingFailure extends BookingPageFlow{
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"TC_02_oneWayDomesticBusiness");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"TC_02_oneWayDomesticBusiness");
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_01_c_verifyChildRegistrationNbookingFailure(String tripType, String origin, String dest,
 			String depDate, String origin2, String departure2, String retdate, String Adult,
-			String Child, String infant,String promo, String Currency,String bookingClass,
-			String Description) throws Throwable {
+			String Child, String infant,String promo, String currency,String bookingClass, String bundle, 
+			String description) throws Throwable {
 		try {
-				TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+				TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 				//instantiating page objects
 				
 				Homepage homepage = new Homepage();
@@ -31,9 +31,9 @@ public class TC01_c_verifyChildRegistrationNbookingFailure extends BookingPageFl
 				String username = RegisterPg.register("","Child"); // Registering a new Child member
 				if(username!=null){
 				homepage.select_Bookflights("registered");
-				inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Adult, Child, infant,promo,Currency);
+				inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Adult, Child, infant,promo,currency);
 				clickFindFlightsBtn();
-	 			selectClass(bookingClass, tripType);
+	 			selectClass(bookingClass, bundle);
 	 			continueOnPsngrDtls();
 				
 				Reporter.SuccessReport("TC01_c_verifyChildRegistrationNbookingFailure", "Pass");
@@ -64,6 +64,7 @@ public class TC01_c_verifyChildRegistrationNbookingFailure extends BookingPageFl
 		    		xls.getCellValue("Promo", "Value"),
 		    		"",
 		    		xls.getCellValue("Booking Class", "Value"),
+		    		xls.getCellValue("Bundle", "Value"),
 	    			"Verify Child Registration and child Booking failure"}};
 	}
 

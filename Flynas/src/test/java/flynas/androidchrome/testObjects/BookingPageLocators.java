@@ -408,6 +408,4 @@ public class BookingPageLocators extends ActionEngine{
 		public static By discount_TR = By.xpath("//span[contains(text(),'Indirim')]/following-sibling::span");
 	
 	
-		
-	
 }

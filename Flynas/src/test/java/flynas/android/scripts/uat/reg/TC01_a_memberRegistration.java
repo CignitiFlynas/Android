@@ -13,10 +13,10 @@ import flynas.android.workflows.*;
 public class TC01_a_memberRegistration extends BookingPageFlow{
 	
 	@Test(dataProvider = "testData",groups={"Android"})
-	public  void TC_01_a_memberRegistration(String Description) throws Throwable {
+	public  void TC_01_a_memberRegistration(String description) throws Throwable {
 		try {
 			
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			//instantiating page objects
 			
 			Homepage homepage = new Homepage();

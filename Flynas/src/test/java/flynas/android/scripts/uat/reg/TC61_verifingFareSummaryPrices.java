@@ -12,16 +12,16 @@ import flynas.android.workflows.BookingPageFlow;
 import flynas.android.workflows.Homepage;
 
 public class TC61_verifingFareSummaryPrices extends BookingPageFlow{
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"TC_01_oneWayDomesticEcoSADAD");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"TC_01_oneWayDomesticEcoSADAD");
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_61_verifingFareSummaryPrices(String tripType, String origin, String dest,String deptDate, String origin2,
-			String departure2, String retdate,String Adult,String Child,String infant, String promo,String Economy,String Flex,
-			String Business,String Description
+			String departure2, String retdate,String Adult,String Child,String infant, String promo,String Economy,
+			String Business,String description
 			) throws Throwable {
 		try {
 			
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			// Handlepopup();
 			
 			String[] Credentials = pickCredentials("UserCredentials");
@@ -42,7 +42,6 @@ public class TC61_verifingFareSummaryPrices extends BookingPageFlow{
 			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Adult, Child, infant,promo,"");
 			clickFindFlightsBtn();
 			verifingEcofarePrice(Economy);
- 			verifingEcofarePrice(Flex);
  			verifingEcofarePrice(Business);
 			
 			Reporter.SuccessReport("TC61_verifingFareSummaryPrices", "Pass");
@@ -69,7 +68,7 @@ public class TC61_verifingFareSummaryPrices extends BookingPageFlow{
 	    		xls.getCellValue("Child Count", "Value"),
 	    		xls.getCellValue("Infant Count", "Value"),
 	    		xls.getCellValue("Promo", "Value"),
-	    		"Economy","Flex","Business",
+	    		"Economy","Business",
 	    		"verifing Fare Summary Prices"}};
 	}
 

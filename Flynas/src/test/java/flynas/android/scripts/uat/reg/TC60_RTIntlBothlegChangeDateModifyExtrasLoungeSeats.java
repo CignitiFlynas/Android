@@ -12,17 +12,17 @@ import com.ctaf.utilities.Reporter;
 import flynas.android.workflows.*;
 
 public class TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats extends BookingPageFlow{
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"FL_WEB_35");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"FL_WEB_35");
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public void TC_60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats(String tripType, String origin, String dest, 
 			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, 
-			String promo,String bookingClass,String FlightType,String totalpass,String nationality,String doctype,
-			String docNumber,String naSmiles,String Mobile,String email,String SelectSeat,String paymenttype, String bookingtype,
-			String charity,String Currency,String newDate,String Description)throws Throwable{
+			String promo,String bookingClass, String bundle, String flightType,String totalpass,String nationality,String docType,
+			String docNumber,String naSmiles,String Mobile,String email,String selectSeat,String paymentType, String bookingType,
+			String charity,String currency,String newDate,String description)throws Throwable{
 				try{
 					
-					TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+					TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 					
 					String[] Credentials = pickCredentials("UserCredentials");
 					String username =Credentials[0];
@@ -37,13 +37,13 @@ public class TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats extends Booking
 					homepage.Login(username,password);
 					homepage.select_Bookflights("Registered");
 					
-					inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, rtrndate,Adult, Child, infant,promo,Currency);
+					inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, rtrndate,Adult, Child, infant,promo,currency);
 					clickFindFlightsBtn();
-					selectClass(bookingClass, tripType);
+					selectClass(bookingClass, bundle);
 					continueOnPsngrDtls();
 					continueOnExtras();
 		 			continueOnSeatSelection();
-		 			payment(paymenttype,"");
+		 			payment(paymentType,"");
 					validate_ticketStatus();
 					String PNRnumber = getReferenceNumber();
 					System.out.println(PNRnumber);
@@ -55,7 +55,7 @@ public class TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats extends Booking
 					registeredUsrManageFlight(PNRnumber);
 					newDate = pickDate(newDate);
 					//Changing the flight date
-					changeDate(PNRnumber,email, Mobile, "", newDate, SelectSeat, totalpass,bookingClass,tripType);
+					changeDate(PNRnumber,email, Mobile, "", newDate, selectSeat, totalpass,bookingClass,tripType);
 					
 					//navigating to home page to manage booking
 					navigatetoHmPg();
@@ -63,13 +63,13 @@ public class TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats extends Booking
 					homepage.select_Managebooking("Registered");
 					registeredUsrManageFlight(PNRnumber);
 					clickExtrasbtn();
-					Baggage(bookingtype,totalpass);
+					Baggage(bookingType,totalpass);
 					Select_A_Meal();
 					//Baggage_Extra();
 					//Select_Meal()
 					Select_lounge();
 					continueOnExtras();
-					payment(paymenttype,"");
+					payment(paymentType,"");
 					
 					//navigating to home page to manage booking
 					navigatetoHmPg();
@@ -77,9 +77,9 @@ public class TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats extends Booking
 					homepage.select_Managebooking("Registered");
 					registeredUsrManageFlight(PNRnumber);
 					seatslctnBtn();
-					selectallSeats(SelectSeat,totalpass, tripType);
+					selectallSeats(selectSeat,totalpass, tripType);
 					continueOnSeatSelection();
-					payment(paymenttype,"");
+					payment(paymentType,"");
 					
 					getReferenceNumber().trim();
 					
@@ -108,6 +108,7 @@ public class TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats extends Booking
 		    	xls.getCellValue("Infant Count", "Value"),
 		    	xls.getCellValue("Promo", "Value"),
 		    	xls.getCellValue("Booking Class", "Value"),
+		    	xls.getCellValue("Bundle", "Value2"),
 		    	xls.getCellValue("Flight Type", "Value2"),
 		    	xls.getCellValue("Total Passenger", "Value"),
 		    	xls.getCellValue("Nationality", "Value"),
@@ -120,8 +121,8 @@ public class TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats extends Booking
     			xls.getCellValue("Payment Type", "Value"),
     			"",
     			xls.getCellValue("Charity Donation", "Value"),
-    			xls.getCellValue("Currency", "Value"),
-    			xls.getCellValue("new Date", "Value"),
+    			xls.getCellValue("currency", "Value"),
+    			xls.getCellValue("NewDate", "Value"),
     			"Validate Round Trip Domestic booking, MMB - Modify extras, select lounge, select seats"}};
 	}
 	

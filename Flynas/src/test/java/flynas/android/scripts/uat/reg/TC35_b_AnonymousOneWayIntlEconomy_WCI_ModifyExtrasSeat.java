@@ -11,53 +11,53 @@ import com.ctaf.utilities.Reporter;
 
 import flynas.android.workflows.*;
 
-public class TC35_b_AnonymousOneWayIntlEconomy_MMB_ModifyExtrasSeat extends BookingPageFlow{
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"FL_WEB_35");
+public class TC35_b_AnonymousOneWayIntlEconomy_WCI_ModifyExtrasSeat extends BookingPageFlow{
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"FL_WEB_35");
 
 	@Test(dataProvider = "testData",groups={"Android"})
-	public void TC_35_b_AnonymousOneWayIntlEconomy_MMB_ModifyExtrasSeat(String tripType, String origin, String dest, 
+	public void TC_35_b_AnonymousOneWayIntlEconomy_WCI_ModifyExtrasSeat(String tripType, String origin, String dest, 
 			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, 
-			String promo,String bookingClass,String FlightType,String totalpass,String nationality,String doctype,
-			String docNumber,String naSmiles,String Mobile,String email,String SelectSeat,String paymenttype, String bookingtype,
-			String charity,String Currency,String Description)throws Throwable{
+			String promo,String bookingClass, String bundle, String flightType,String totalpass,String nationality,String docType,
+			String docNumber,String naSmiles,String Mobile,String email,String selectSeat,String paymentType, String bookingType,
+			String charity,String currency,String description)throws Throwable{
 				try{
 					
-					TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+					TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 					String	deptdate = pickDate(deptDate);
 					String	rtrndate = pickDate(retdate);
 					
 					Homepage homepage = new Homepage();
 					homepage.select_Bookflights("Anonymous");
 					
-					inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, rtrndate,Adult, Child, infant,promo,Currency);
+					inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, rtrndate,Adult, Child, infant,promo,currency);
 					clickFindFlightsBtn();
-					selectClass(bookingClass, tripType);
-					String passenger[] = inputPassengerDetails(FlightType,totalpass,nationality,doctype,docNumber, naSmiles,Mobile,email,"","","");
+					selectClass(bookingClass, bundle);
+					String passenger[] = inputPassengerDetails(flightType,totalpass,nationality,docType,docNumber, naSmiles,Mobile,email,"","","");
 		 			continueOnExtras();
 		 			continueOnSeatSelection();
-		 			payment(paymenttype,"");
+		 			payment(paymentType,"");
 					validate_ticketStatus();
 					String PNRnumber = getReferenceNumber();
 					System.out.println(PNRnumber);
 					navigatetoHmPg();
 					handleRatingRequest();
-					homepage.select_Managebooking("Anonymous");
+					homepage.select_OnlineCheckIn("Anonymous");
 					searchFlightCheckin(PNRnumber,passenger[1]);
-					Baggage(bookingtype,totalpass);
+					Baggage(bookingType,totalpass);
 					Select_A_Meal();
 					//Baggage_Extra();
 					//Select_Meal()
 					Select_lounge();
 					continueOnExtras();
-					selectallSeats(SelectSeat,totalpass, tripType);
+					selectallSeats(selectSeat,totalpass, tripType);
 					continueOnSeatSelection();
 					getReferenceNumber().trim();
 					
-					Reporter.SuccessReport("TC35_b_AnonymousOneWayIntlEconomy_MMB_ModifyExtrasSeat", "Pass");
+					Reporter.SuccessReport("TC35_b_AnonymousOneWayIntlEconomy_WCI_ModifyExtrasSeat", "Pass");
 					
 					}catch(Exception e){
 						e.printStackTrace();
-						Reporter.failureReport("TC35_b_AnonymousOneWayIntlEconomy_MMB_ModifyExtrasSeat", "Fail");
+						Reporter.failureReport("TC35_b_AnonymousOneWayIntlEconomy_WCI_ModifyExtrasSeat", "Fail");
 						
 					}
 	}
@@ -77,6 +77,7 @@ public class TC35_b_AnonymousOneWayIntlEconomy_MMB_ModifyExtrasSeat extends Book
 		    	xls.getCellValue("Infant Count", "Value"),
 		    	xls.getCellValue("Promo", "Value"),
 		    	xls.getCellValue("Booking Class", "Value"),
+		    	xls.getCellValue("Bundle", "Value"),
 		    	xls.getCellValue("Flight Type", "Value2"),
 		    	xls.getCellValue("Total Passenger", "Value"),
 		    	xls.getCellValue("Nationality", "Value"),
@@ -89,7 +90,7 @@ public class TC35_b_AnonymousOneWayIntlEconomy_MMB_ModifyExtrasSeat extends Book
     			xls.getCellValue("Payment Type", "Value"),
     			"",
     			xls.getCellValue("Charity Donation", "Value"),
-    			xls.getCellValue("Currency", "Value"),
+    			xls.getCellValue("currency", "Value"),
     			"Validate OneWay International Economy MMB- modify extras, select business lounge"}};
 	}
 	

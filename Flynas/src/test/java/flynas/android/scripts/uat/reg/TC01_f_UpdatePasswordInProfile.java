@@ -14,10 +14,10 @@ public class TC01_f_UpdatePasswordInProfile extends BookingPageFlow{
 	
 	
 	@Test(dataProvider = "testData",groups={"Android"})
-	public  void TC_01_f_UpdatePasswordInProfile(String Description) throws Throwable {
+	public  void TC_01_f_UpdatePasswordInProfile(String description) throws Throwable {
 		try {
 			
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			//instantiating page objects
 			String[] Credentials = pickCredentials("UserCredentials");
 			String username =Credentials[0];

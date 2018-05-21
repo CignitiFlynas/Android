@@ -2,13 +2,13 @@
 
 <suite name="Flynas" allow-return-values="true" verbose="2">
 
-	<test name="Routes-UAT-Android" >
+	<test name="Android-UAT-Routes" >
 	
-		<!-- <groups>
+		 <groups>
 				<run>
 					<include name="Android"/>
 				</run>
-		</groups> -->
+		</groups>
 		
 		<classes>	 	
 			

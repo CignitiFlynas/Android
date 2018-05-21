@@ -11,18 +11,18 @@ import flynas.android.workflows.*;
 
 public class TC02_f_RTDomesticExtra1Adult1ChildCC extends BookingPageFlow{
 	
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"TC_02_oneWayDomesticBusiness");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"TC_02_oneWayDomesticBusiness");
 
 	@Test(dataProvider = "testData",groups={"Android"})
-	public  void TC_02_d_RTDomesticBusiness1AdultCC(String tripType, String origin, String dest, 
+	public  void TC_02_f_RTDomesticExtra1Adult1ChildCC(String tripType, String origin, String dest, 
 			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, String promo, 
-			String strBookingClass,
-			String FlightType,String totalpass,String namtionality,String Doctypr,String docNumber,
-			String naSmiles,String Mobile,String email ,String SelectSeat,String paymenttype,String bookingtype, 
-			String charity,String Currency, String Description
+			String bookingClass, String bundle, 
+			String flightType,String totalpass,String nationality,String docType,String docNumber,
+			String naSmiles,String Mobile,String email ,String selectSeat,String paymentType,String bookingType, 
+			String charity,String currency, String description
 			) throws Throwable {
 		try {
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			// Handlepopup();
 			String[] Credentials = pickCredentials("UserCredentials");
 			
@@ -30,6 +30,7 @@ public class TC02_f_RTDomesticExtra1Adult1ChildCC extends BookingPageFlow{
 			String password =Credentials[1];
 		
 			String depDate = pickDate(deptDate);
+			String rtrndate = pickDate(retdate);
 			
 			Homepage homepage = new Homepage();
 						
@@ -38,14 +39,14 @@ public class TC02_f_RTDomesticExtra1Adult1ChildCC extends BookingPageFlow{
 			homepage.Login(username,password);
 			homepage.select_Bookflights("registered");
 					
- 			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Adult, Child, infant,promo,Currency);
+ 			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Adult, Child, infant,promo,currency);
 			clickFindFlightsBtn();
- 			selectClass(strBookingClass, tripType);
- 			continueOnPsngrDtls();
- 			Baggage(bookingtype, totalpass);
+ 			selectClass(bookingClass, bundle);
+ 			inputPassengerDetails(flightType,totalpass,nationality,docType,docNumber, naSmiles,Mobile,username,"","","");
+ 			Baggage(bookingType, totalpass);
  			continueOnExtras();
-			selectSeat(SelectSeat, bookingtype,"");
-			payment(paymenttype,"");
+			selectSeat(selectSeat, bookingType,"");
+			payment(paymentType,"");
 			validate_ticketStatus();
 			Reporter.SuccessReport("TC02_f_RTDomesticExtra1Adult1ChildCC", "Pass");
 			
@@ -63,11 +64,11 @@ public class TC02_f_RTDomesticExtra1Adult1ChildCC extends BookingPageFlow{
 	    		{xls.getCellValue("Trip Type", "Value2"),xls.getCellValue("Origin", "Value"),xls.getCellValue("Destination", "Value"),
 	    		xls.getCellValue("Departure Date", "Value"),"","",xls.getCellValue("Return Date", "Value"),xls.getCellValue("Adults Count", "Value2"),
 	    		xls.getCellValue("Child Count", "Value2"),xls.getCellValue("Infant Count", "Value2"),xls.getCellValue("Promo", "Value"),
-	    		xls.getCellValue("Booking Class", "Value3"),xls.getCellValue("Flight Type", "Value"),xls.getCellValue("Total Passenger", "Value2"),
-	    		xls.getCellValue("Nationality", "Value"),xls.getCellValue("Document Type", "Value"),xls.getCellValue("Doc Number", "Value"),
-	    		"",xls.getCellValue("Mobile", "Value"),xls.getCellValue("Email Address", "Value"),xls.getCellValue("Select Seat", "Value"),
-	    		xls.getCellValue("Payment Type", "Value"),"",xls.getCellValue("Charity Donation", "Value"),xls.getCellValue("Currency", "Value"),
-	    		"Validate Round Trip Domestic one Adult Business class Booking"}};
+	    		xls.getCellValue("Booking Class", "Value"), xls.getCellValue("Bundle", "Value2"), xls.getCellValue("Flight Type", "Value"),
+	    		xls.getCellValue("Total Passenger", "Value2"),xls.getCellValue("Nationality", "Value"),xls.getCellValue("Document Type", "Value"),
+	    		xls.getCellValue("Doc Number", "Value"),"",xls.getCellValue("Mobile", "Value"),xls.getCellValue("Email Address", "Value"),
+	    		xls.getCellValue("Select Seat", "Value"),xls.getCellValue("Payment Type", "Value"),"",xls.getCellValue("Charity Donation", "Value"),
+	    		xls.getCellValue("currency", "Value"),"Validate Round Trip Domestic one Adult Business class Booking"}};
 	}
 
 }

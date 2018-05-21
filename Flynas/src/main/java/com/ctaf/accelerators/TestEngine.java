@@ -18,35 +18,30 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 //import org.testng.annotations.BeforeTest;
 
-
-import com.ctaf.support.ActionEngineSupport;
 import com.ctaf.support.ConfiguratorSupport;
 import com.ctaf.support.ExcelReader;
 import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.support.ReportStampSupport;
 import com.ctaf.utilities.Reporter;
 
-
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.AutomationName;
+import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class TestEngine extends HtmlReportSupport {
@@ -124,7 +119,7 @@ public class TestEngine extends HtmlReportSupport {
 				logger.info("Android");
 				browser = "android";
 			}
-			else if (groupNames.contains("Mobile")) {
+			else if (groupNames.contains("iPhone")) {
 				logger.info("iPhone");
 				browser = "iphone";
 			}
@@ -169,25 +164,10 @@ public class TestEngine extends HtmlReportSupport {
 		
 		if(browser.equalsIgnoreCase("iphone")){
 			try {
-				// ---------------------------------------------------
-				//System.out.println(System.getProperty("user.home")+"/Log/RPMob_" + timeStamp + ".log");
-				String logFile = System.getProperty("user.dir")+"/Logs/RPMob_"+System.currentTimeMillis()+".log";
+				String logFile = System.getProperty("user.dir")+"/Logs/Flynas_iOS_"+System.currentTimeMillis()+".log";
 				System.out.println("In iphone block");
-			/*while (true) {
-				if (RedPlanetUtils.startAppiumForiOS(logFile)) {
-					break;
-				}
-			}
-			if ((new File(logFile).exists())) {
-				System.out.println("Log File Created by Appium at path : " + System.getProperty("user.dir")
-						+ "/Log/RPMob_" + timeStamp + ".log");
-			}
-			Thread.sleep(10000);*/
-				// -----------------------------------------------------
-				DeviceName = configProps.getProperty("iOSDeviceName");
 				String device = configProps.getProperty("Device");
 				String appPath = configProps.getProperty("appPath");
-				
 				String ipaPath = configProps.getProperty("ipaPath");
 				String temp = System.getProperty("user.dir")+ipaPath;
 				String temp2 = System.getProperty("user.dir")+appPath;
@@ -197,34 +177,37 @@ public class TestEngine extends HtmlReportSupport {
 				String udid = configProps.getProperty("UDID");
 				bundleID = configProps.getProperty("BundleID");
 				DesiredCapabilities capabilitiesForAppium = new DesiredCapabilities();
-				//System.out.println("DeviceName is : " + DeviceName);
+				
+				
 				capabilitiesForAppium.setCapability("deviceName",device);
 				capabilitiesForAppium.setCapability("platformName","iOS");
 				capabilitiesForAppium.setCapability("platformVersion",platformVer);
-				capabilitiesForAppium.setCapability("deviceName",device);
 				capabilitiesForAppium.setCapability("bundleId", bundleID);
+				capabilitiesForAppium.setCapability("automationName", "XCuiTest");
 				capabilitiesForAppium.setCapability("newCommandTimeout","8000");
 				capabilitiesForAppium.setCapability("takesScreenshot", true);
 				capabilitiesForAppium.setCapability("autoWebviewTimeout","8000");
 				capabilitiesForAppium.setCapability("locationServicesAuthorized", true);
-				//capabilitiesForAppium.setCapability("autoLaunch", true);
-				//capabilitiesForAppium.setCapability("fullReset", false);
-				//capabilitiesForAppium.setCapability("noReset", true);
-				capabilitiesForAppium.setCapability("waitForAppScript",
-						"target.elements().length > 0; $.delay(30000); $.acceptAlert();");			
-				if((DeviceName.contains("Simulator"))||((udid.length()==0))){
+				capabilitiesForAppium.setCapability("autoLaunch", true);
+				capabilitiesForAppium.setCapability("fullReset", false);
+				capabilitiesForAppium.setCapability("noReset", true);
+				capabilitiesForAppium.setCapability("waitForAppScript","target.elements().length > 0; $.delay(30000); $.acceptAlert();");			
+				
+				if(device.equalsIgnoreCase("simulator")){
 					System.out.println("using simulator");
 					System.out.println("app Path "+app.getCanonicalPath());
 					capabilitiesForAppium.setCapability("app",app.getCanonicalPath());
+					capabilitiesForAppium.setCapability(IOSMobileCapabilityType.LOCATION_SERVICES_AUTHORIZED, true);
 					
-				}else{
+					}
+				else {
 					System.out.println("+++++using real device   "+groupNames+"+++++");
 					capabilitiesForAppium.setCapability("udid", udid);
 					System.out.println("ipa Path "+ipa.getCanonicalPath());
-					capabilitiesForAppium.setCapability("app",ipa);
-				}
-				Iosdriver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),
-						capabilitiesForAppium);
+					capabilitiesForAppium.setCapability(MobileCapabilityType.APP, ipa);
+					}
+				
+				Iosdriver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilitiesForAppium);
 				driver = Iosdriver;
 				driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
 			} catch (Exception e) {
@@ -233,6 +216,8 @@ public class TestEngine extends HtmlReportSupport {
 
 		}else if (browser.equalsIgnoreCase("Android")) {
 			try {
+				String logFile = System.getProperty("user.dir")+"/Logs/Flynas_Android_"+System.currentTimeMillis()+".log";
+				
 				//String AppPackage = configProps.getProperty("appPackage");
 				//String AppActivity = configProps.getProperty("appActivity");
 				//System.out.println(AppActivity);
@@ -265,7 +250,7 @@ public class TestEngine extends HtmlReportSupport {
 
 		}else if (browser.equalsIgnoreCase("AndroidChrome")) {
 			try{
-				String logFile = System.getProperty("user.dir")+"/Logs/AndroidChrome_"+System.currentTimeMillis()+".log";
+				String logFile = System.getProperty("user.dir")+"/Logs/Flynas_AndroidChrome_"+System.currentTimeMillis()+".log";
 				System.out.println("LOGFILE-----"+logFile);
 				System.out.println("In android browser block");
 				// Create object of  DesiredCapabilities class and specify android platform

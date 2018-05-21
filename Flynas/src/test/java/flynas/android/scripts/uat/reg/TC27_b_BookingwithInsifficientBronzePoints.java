@@ -11,18 +11,18 @@ import com.ctaf.utilities.Reporter;
 import flynas.android.workflows.*;
 
 public class TC27_b_BookingwithInsifficientBronzePoints extends BookingPageFlow{
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"FL_WEB_27");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"FL_WEB_27");
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_27_b_BookingwithInsifficientBronzePoints(String tripType, String origin, String dest, 
-			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, String promo, String strBookingClass,
-			String FlightType,String totalpass,String nationality,String Doctypr,String docNumber,
-			String naSmiles,String Mobile,String SelectSeat,String paymenttype,String bookingtype, 
-			String charity,String Currency, String accType,String Description
+			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, String promo, String bookingClass, String bundle, 
+			String flightType,String totalpass,String nationality,String docType,String docNumber,
+			String naSmiles,String Mobile,String selectSeat,String paymentType,String bookingType, 
+			String charity,String currency, String accType,String description
 			) throws Throwable {
 		try {
-			//System.out.println(paymenttype);
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			//System.out.println(paymentType);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			String deptdate = pickDate(deptDate);
 			
 			String[] Credentials = pickCredentials("UserCredentials");
@@ -35,10 +35,10 @@ public class TC27_b_BookingwithInsifficientBronzePoints extends BookingPageFlow{
 			homepage.Login(username,password);
 			homepage.select_Bookflights("registered");
 			
-			inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, retdate,Adult, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, retdate,Adult, Child, infant,promo,currency);
 			selectPayWithSmilePoint();
 			clickFindFlightsBtn();
-			selectClass(strBookingClass, tripType);
+			selectClass(bookingClass, bundle);
 			continueOnPsngrDtls();
 			continueOnExtras();
 			continueOnSeatSelection();
@@ -71,6 +71,7 @@ public class TC27_b_BookingwithInsifficientBronzePoints extends BookingPageFlow{
 		    		xls.getCellValue("Infant Count", "Value"),
 		    		xls.getCellValue("Promo", "Value"),
 		    		xls.getCellValue("Booking Class", "Value"),
+		    		xls.getCellValue("Bundle", "Value"),
 		    		xls.getCellValue("Flight Type", "Value2"),
 		    		xls.getCellValue("Total Passenger", "Value"),
 		    		xls.getCellValue("Nationality", "Value"),
@@ -82,7 +83,7 @@ public class TC27_b_BookingwithInsifficientBronzePoints extends BookingPageFlow{
 		    		xls.getCellValue("Payment Type", "Value"),
 		    		"",
 	    			xls.getCellValue("Charity Donation", "Value"),
-	    			xls.getCellValue("Currency", "Value"),
+	    			xls.getCellValue("currency", "Value"),
 	    			xls.getCellValue("AccountType", "Value"),
 		    		"Validate Redemption Booking with Bronze Member"}};
 	}

@@ -14,18 +14,18 @@ import flynas.android.workflows.BookingPageFlow;
 import flynas.android.workflows.Homepage;
 
 public class TC04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail extends BookingPageFlow {
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"TC04_oneWayDomAdultCheckin");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"TC04_oneWayDomAdultCheckin");
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail(String tripType, String origin, String dest, 
 			String deptDate, String origin2,String departure2, String retdate,String Adult,String Child,String infant, String promo, 
-			String strBookingClass,	String FlightType,String totalpass,String nationality,String Doctype,String docNumber,
-			String naSmiles,String Mobile,String email ,String SelectSeat,String paymenttype,String bookingtype,String newDate,
-			String charity,String Currency, String Description
+			String bookingClass, String bundle, 	String flightType,String totalpass,String nationality,String docType,String docNumber,
+			String naSmiles,String Mobile,String email ,String selectSeat,String paymentType,String bookingType,String newDate,
+			String charity,String currency, String description
 			) throws Throwable {
 		try {
 			
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			// Handlepopup();
 			
 			String depDate = pickDate(deptDate);
@@ -35,13 +35,13 @@ public class TC04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail extends Boo
 					
 			homepage.select_Bookflights("Anonymous");
 					
-			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Adult, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, rtrndate,Adult, Child, infant,promo,currency);
 			clickFindFlightsBtn();
-			selectClass(strBookingClass, tripType);
-			String[] passenger = inputPassengerDetails(FlightType,totalpass,nationality,Doctype,docNumber, naSmiles,Mobile,email,"","","");
+			selectClass(bookingClass, bundle);
+			String[] passenger = inputPassengerDetails(flightType,totalpass,nationality,docType,docNumber, naSmiles,Mobile,email,"","","");
  			continueOnExtras();
  			continueOnSeatSelection();
- 			payment(paymenttype,"");
+ 			payment(paymentType,"");
 			validate_ticketStatus();
 			String PNRnumber = getReferenceNumber();
 			System.out.println(PNRnumber);
@@ -75,6 +75,7 @@ public class TC04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail extends Boo
 	    		xls.getCellValue("Infant Count", "Value2"),
 	    		xls.getCellValue("Promo", "Value"),
 	    		xls.getCellValue("Booking Class", "Value"),
+	    		xls.getCellValue("Bundle", "Value"),
 	    		xls.getCellValue("Flight Type", "Value2"),
 	    		xls.getCellValue("Total Passenger", "Value2"),
 	    		xls.getCellValue("Nationality", "Value"),
@@ -88,7 +89,7 @@ public class TC04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail extends Boo
 	    		"",
 	    		xls.getCellValue("New Date", "Value"),
     			xls.getCellValue("Charity Donation", "Value"),
-    			xls.getCellValue("Currency", "Value"),
+    			xls.getCellValue("currency", "Value"),
 	    		"Validate One way Intl with Multi pax Checkin failure"}};
 	}
 	

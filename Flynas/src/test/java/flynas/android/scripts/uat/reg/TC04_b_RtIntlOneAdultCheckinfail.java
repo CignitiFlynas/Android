@@ -11,22 +11,22 @@ import flynas.android.workflows.*;
 
 public class TC04_b_RtIntlOneAdultCheckinfail extends BookingPageFlow{
 	
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataForAndroid"),"TC04_oneWayDomAdultCheckin");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"TC04_oneWayDomAdultCheckin");
 
 	@Test(dataProvider = "testData",groups={"Android"})
-	public  void TC04b_RtIntlOneAdultCheckinFail ( String tripType, 
+	public  void TC04b_RtIntlOneAdultCheckinFail (String tripType, 
 			String origin, String dest, String deptDate,String origin2,String departure2, String retdate,
-			String Adult,String Child,String infant, String promo, String strBookingClass, String FlightType,String totalpass,String nationality,String Doctypr,
-			String docNumber, String naSmiles,String Mobile,String email ,String SelectSeat,
-			String paymenttype, String bookingtype,String Charity, 
-			String Currency,String Description) throws Throwable {
+			String Adult,String Child,String infant, String promo, String bookingClass, String bundle,  String flightType,String totalpass,String nationality,String docType,
+			String docNumber, String naSmiles,String Mobile,String email ,String selectSeat,
+			String paymentType, String bookingType,String Charity, 
+			String currency,String description) throws Throwable {
 		try {
 			
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			
 			//Initializing departure date and return date
 			String depDate = pickDate(deptDate);
-			String retrndate = pickDate(retdate);
+			String rtrndate = pickDate(retdate);
 			
 			//User Login
 			String[] Credentials = pickCredentials("UserCredentials");
@@ -41,17 +41,17 @@ public class TC04_b_RtIntlOneAdultCheckinfail extends BookingPageFlow{
 			homepage.select_Bookflights("registered");
 			
 			//Entering Booking Details
-			inputBookingDetails(tripType, origin, dest, depDate, origin2,departure2,retrndate,Adult, Child, infant,promo,Currency);
+			inputBookingDetails(tripType, origin, dest, depDate, origin2,departure2,rtrndate,Adult, Child, infant,promo,currency);
 			clickFindFlightsBtn();
 			//Selecting flight and traveling class
-			selectClass(strBookingClass, tripType);
+			selectClass(bookingClass, bundle);
 			
 			//Clicking continue button on Passenger details page
 			continueOnPsngrDtls();
 			continueOnExtras();
 			continueOnSeatSelection();
-			//selectSeat(SelectSeat, bookingtype,"");
-			payment(paymenttype,"");
+			//selectSeat(selectSeat, bookingType,"");
+			payment(paymentType,"");
 			String strpnr = getReferenceNumber();
 			String PNR = strpnr.trim();
 			System.out.println(PNR);
@@ -88,6 +88,7 @@ public class TC04_b_RtIntlOneAdultCheckinfail extends BookingPageFlow{
 		    		xls.getCellValue("Infant Count", "Value"),
 		    		xls.getCellValue("Promo", "Value"),
 		    		xls.getCellValue("Booking Class", "Value"),
+		    		xls.getCellValue("Bundle", "Value"),
 		    		xls.getCellValue("Flight Type", "Value2"),
 		    		xls.getCellValue("Total Passenger", "Value"),
 		    		xls.getCellValue("Nationality", "Value"),

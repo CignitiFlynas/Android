@@ -2898,7 +2898,7 @@ public class ActionEngine extends TestEngine {
 		}
 
 	}
-	public void scroll(String value) throws InterruptedException
+	public void scroll(String pnr) throws InterruptedException
 	{
 		 boolean blnFlag =true;
 		  while (blnFlag) 
@@ -2907,7 +2907,7 @@ public class ActionEngine extends TestEngine {
 			  List<WebElement> valuepnr = driver.findElements(By.xpath("//*[@resource-id='com.flynas.android.app:id/mmbBookingLinePnr']"));
 			for(int i=0;i<valuepnr.size();i++)
 			{
-			  if(valuepnr.get(i).getText().equalsIgnoreCase(value))
+			  if(valuepnr.get(i).getText().equalsIgnoreCase(pnr))
 			  {
 				 System.out.println("Element found");
 				 Thread.sleep(2000);
@@ -2933,6 +2933,10 @@ public class ActionEngine extends TestEngine {
 				  System.out.println("starty = " + starty + " ,endy = " + endy + " , startx = " + startx);
 
 				  //Swipe from Bottom to Top.
+				  if(driver==Iosdriver){
+					  Iosdriver.swipe(startx, starty, startx, endy, 3000);
+				  }
+				  else
 				  AndroidDriver2.swipe(startx, starty, startx, endy, 3000);
 				  Thread.sleep(2000);
 				 
@@ -2942,6 +2946,7 @@ public class ActionEngine extends TestEngine {
 			  
 		  }
 	}
+	
 	public void swipeAndroid(float value) throws InterruptedException
 	{
 		Dimension  size = driver.manage().window().getSize();

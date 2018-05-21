@@ -11,17 +11,17 @@ import com.ctaf.utilities.Reporter;
 import flynas.android.workflows.*;
 
 public class TC01_e_VerifyAccLockOn10IncorrectPswdEntries extends BookingPageFlow{
-	ExcelReader xls = new ExcelReader(configProps.getProperty("TestDataIBEUAT"),"FL_WEB_22");
+	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"FL_WEB_22");
 
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_01_e_VerifyAccLockOn10IncorrectPswdEntries( String Password,String Nationality,String DocumentType,
 			String DocNumber,
 			String Mobile,
 			String EmailAddress,
-			String Description) throws Throwable {
+			String description) throws Throwable {
 		try {
 			
-			TestEngine.testDescription.put(HtmlReportSupport.tc_name, Description);
+			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			
 			Homepage homepage = new Homepage();
 			

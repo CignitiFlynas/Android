@@ -145,12 +145,16 @@ public class BookingPageLocators extends ActionEngine{
 	//Class selection page
 	//public static By economyOW = By.xpath("//div[@class='main_con']/div/div/div[2]/div/flight-select/div/form/div//descendant::table/tbody//descendant::td[5]/button");
 	//public static By economyOW = By.xpath("//div/button[@class='btn selectflightbtn col1']");
-	public static By flights = By.xpath("//*[@resource-id='com.flynas.android.app:id/selectFlightDateBar']//android.widget.LinearLayout[@index=1]/android.widget.LinearLayout");
+	public static By flightdates = By.xpath("//*[@resource-id='com.flynas.android.app:id/selectFlightDateBar']//android.widget.LinearLayout[@index=1]/android.widget.LinearLayout");
 	public static By economyOW = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_economy_block']");
 	public static By flexOW = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_flex_block']");
 	public static By busOW = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_business_block']");
 	public static By bookingclass(String bookingclass) {
 		return By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_"+bookingclass+"_block']");}
+	public static By light = By.xpath("//*[@resource-id='com.flynas.android.app:id/ivBundleRadioBoxLight']");
+	public static By plus = By.xpath("//*[@resource-id='com.flynas.android.app:id/ivBundleRadioBoxPlus']");
+	public static By premium = By.xpath("//*[@resource-id='com.flynas.android.app:id/ivBundleRadioBoxPremium']");
+	
 	public static String rtClassStr= "//div[@class='main_con']/div/div/div[2]/div/flight-select/div/form/div[2]//descendant::table/tbody/tr";
 	public static By rtClass = By.xpath("//div[@class='main_con']/div/div/div[2]/div/flight-select/div/form/div[2]//descendant::table/tbody/tr");
 	public static By okBtn = By.xpath("//div[@class='modal-dialog']/div/div[3]/button[@class='btn btn-primary']");
@@ -158,7 +162,7 @@ public class BookingPageLocators extends ActionEngine{
 	public static By selectFlightUpDownArrow = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_updown_arrow']");
 	public static By flightNumber = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_ticket_number']");
 	public static By rightarrow = By.xpath("//*[@resource-id='com.flynas.android.app:id/imageView2']");
-	public static By nextFlight = By.xpath("//*[@resource-id='com.flynas.android.app:id/lowPriceDay3']");
+	public static By nextFlight = By.xpath("//*[@resource-id='com.flynas.android.app:id/lowPriceDay2']");
 	public static By econnmyPrice = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_economy_price']");
 	public static By flexPrice = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_flex_price']");
 	public static By bussPrice = By.xpath("//*[@resource-id='com.flynas.android.app:id/select_flight_extra_business_price']");
