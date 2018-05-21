@@ -41,7 +41,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AutomationName;
-import io.appium.java_client.remote.IOSMobileCapabilityType;
+//import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class TestEngine extends HtmlReportSupport {
@@ -197,7 +197,7 @@ public class TestEngine extends HtmlReportSupport {
 					System.out.println("using simulator");
 					System.out.println("app Path "+app.getCanonicalPath());
 					capabilitiesForAppium.setCapability("app",app.getCanonicalPath());
-					capabilitiesForAppium.setCapability(IOSMobileCapabilityType.LOCATION_SERVICES_AUTHORIZED, true);
+					//capabilitiesForAppium.setCapability(IOSMobileCapabilityType.LOCATION_SERVICES_AUTHORIZED, true);
 					
 					}
 				else {
