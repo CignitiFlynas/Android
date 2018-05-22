@@ -55,7 +55,7 @@ public class TC57_RTDomesticDepartingLegChangeDateModifyExtrasLoungeSeats extend
 					registeredUsrManageFlight(PNRnumber);
 					newDate = nextDateof(deptdate);
 					//Changing the flight date
-					changeDate(PNRnumber,email, Mobile, "", newDate, selectSeat, totalpass,bookingClass,tripType);
+					changeDate(PNRnumber,email, Mobile, "", newDate, selectSeat, totalpass,bookingClass,bundle);
 					
 					//navigating to home page to manage booking
 					navigatetoHmPg();

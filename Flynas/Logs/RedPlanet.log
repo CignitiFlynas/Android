@@ -1,17 +1,39 @@
-2018-05-17 13:42:59-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
-2018-05-17 13:43:29-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_11_AnonymousOneAdultOneChildOneInfantPartCordShare
-2018-05-17 14:40:11-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
-2018-05-17 14:40:36-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_11_AnonymousOneAdultOneChildOneInfantPartCordShare
-2018-05-17 14:42:23-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
-2018-05-17 14:42:46-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_11_AnonymousOneAdultOneChildOneInfantPartCordShare
-2018-05-17 14:51:51-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
-2018-05-17 14:52:14-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_11_AnonymousOneAdultOneChildOneInfantPartCordShare
-2018-05-17 14:55:33-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
-2018-05-17 14:55:56-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_10_AnonymousOneAdultOneChildFlexCordShare
-2018-05-17 14:56:19-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
-2018-05-17 14:56:57-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
-2018-05-17 14:57:19-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_10_AnonymousOneAdultOneChildFlexCordShare
-2018-05-17 15:00:07-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
-2018-05-17 15:00:31-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_10_AnonymousOneAdultOneChildFlexCordShare
-2018-05-21 17:33:19-main--INFO -com.ctaf.accelerators.TestEngine:Android
-2018-05-21 17:34:10-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_2a_oneWayDomesticBusinessCC
+2018-05-22 11:49:59-main--INFO -com.ctaf.accelerators.TestEngine:Android
+2018-05-22 11:50:21-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_2a_oneWayDomesticBusinessCC
+2018-05-22 11:55:30-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_b_oneWayDomesticBusiness1AdultCC
+2018-05-22 12:00:37-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_c_RTDomesticSimple1AdultCC
+2018-05-22 12:06:04-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_d_RTDomesticBusiness1AdultCC
+2018-05-22 12:12:07-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_e_RTIntlBusiness1AdultCC
+2018-05-22 12:16:45-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_f_RTDomesticExtra1Adult1ChildCC
+2018-05-22 12:25:37-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 12:25:40-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_2g_oneWayDomesticEcoSADAD
+2018-05-22 12:30:41-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_3a_AnonymousOneWayDomesticSimpleChangeDate
+2018-05-22 12:36:55-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 12:36:58-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_03b_AnonymousOneWayDomesticSimpleChangeDate
+2018-05-22 12:43:42-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 12:43:45-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_4a_AnonymousOneWayDomOneAdultCheckin
+2018-05-22 12:47:05-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 12:47:08-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC04b_RtIntlOneAdultCheckinFail
+2018-05-22 12:51:47-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail
+2018-05-22 12:59:51-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 12:59:54-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_d_AnonymousOneWayIntlExtraIntlMultiPaxCheckinFail2
+2018-05-22 13:08:25-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 13:08:28-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC0_4_e_AnonymousOneWayIntlBusinessIntlMultiPaxCheckinFail
+2018-05-22 13:17:07-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 13:17:10-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_05_AnonymousOneWayDomNineAdultCheckin
+2018-05-22 13:35:03-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 13:35:06-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_06_AnonymousOneWayInterTwoAdultEco
+2018-05-22 13:36:15-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 13:36:18-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_07_AnonymousRoundTripDomFourAdultBusiness
+2018-05-22 13:51:37-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 13:51:40-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_08_AnonymousRTInt1ad1Ch1InBusExtra
+2018-05-22 14:00:52-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 14:00:55-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_09_AnonymousRTInt1ad1Ch1InEcoExtras
+2018-05-22 14:02:10-main--INFO -com.ctaf.accelerators.TestEngine: Able to get TscreenShot
+2018-05-22 14:02:13-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_10_AnonymousOneAdultOneChildFlexCordShare
+2018-05-22 14:52:02-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-05-22 14:52:03-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_f_RTDomesticExtra1Adult1ChildCC
+2018-05-22 14:53:32-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-05-22 14:53:34-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_f_RTDomesticExtra1Adult1ChildCC
+2018-05-22 14:55:24-main--INFO -com.ctaf.accelerators.TestEngine:Starting browser : Android
+2018-05-22 14:55:40-main--INFO -com.ctaf.accelerators.TestEngine:Current Test : TC_02_f_RTDomesticExtra1Adult1ChildCC

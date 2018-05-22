@@ -483,7 +483,7 @@ public class TestEngine extends HtmlReportSupport {
 			}else if(browser.equalsIgnoreCase("iphone")){
 				Iosdriver.resetApp();
 			}else if (browser.equalsIgnoreCase("android")) {
-					AndroidDriver2.resetApp();
+					//AndroidDriver2.resetApp();
 			}
 		flag = false;
 		if((!(browser.equalsIgnoreCase("Android")))&(!(browser.equalsIgnoreCase("iPhone")))&(!(browser.equalsIgnoreCase("AndroidChrome")))){
@@ -506,12 +506,10 @@ public class TestEngine extends HtmlReportSupport {
 			driver.get(url);
 		}*/
 		
-		HtmlReportSupport.tc_name = method.getName().toString() + "-"
-				+ formattedDate;
+		HtmlReportSupport.tc_name = method.getName().toString() + "-"+ formattedDate;
 		String[] ts_Name = this.getClass().getName().toString().split("\\.");
-		HtmlReportSupport.packageName = ts_Name[0] + "." + ts_Name[1] + "."
-				+ ts_Name[2];
-			HtmlReportSupport.testHeader(HtmlReportSupport.tc_name, browser);
+		HtmlReportSupport.packageName = ts_Name[0] + "." + ts_Name[1] + "."+ ts_Name[2];
+		HtmlReportSupport.testHeader(HtmlReportSupport.tc_name, browser);
 		stepNum = 0;
 		PassNum = 0;
 		FailNum = 0;
@@ -542,7 +540,8 @@ public class TestEngine extends HtmlReportSupport {
 			if ((browser.toLowerCase().contains("iphone"))) {
 				Iosdriver.closeApp();
 			}else if(browser.toLowerCase().contains("android")){ 
-				AndroidDriver2.closeApp();
+				AndroidDriver2.resetApp();
+				//AndroidDriver2.closeApp();
 				
 			}else{
 				driver.quit();

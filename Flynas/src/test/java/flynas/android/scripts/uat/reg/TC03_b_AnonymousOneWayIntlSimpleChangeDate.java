@@ -49,7 +49,7 @@ public class TC03_b_AnonymousOneWayIntlSimpleChangeDate extends BookingPageFlow{
 			homepage.select_Managebooking("Anonymous");
 			searchFlightMMB(PNRnumber, passenger[1]);
 			newDate = pickDate(newDate);
-			String strPNRChangeDate = changeDate(PNRnumber,email, Mobile, "", newDate, selectSeat, totalpass,bookingClass,tripType);
+			String strPNRChangeDate = changeDate(PNRnumber,email, Mobile, "", newDate, selectSeat, totalpass,bookingClass,bundle);
 			
 			if(strPNRChangeDate.trim().equalsIgnoreCase(PNRnumber)){
 			Reporter.SuccessReport("TC03b_AnonymousOneWayIntlSimpleChangeDate", "Pass");

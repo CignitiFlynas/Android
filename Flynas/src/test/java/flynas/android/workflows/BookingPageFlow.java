@@ -1257,7 +1257,7 @@ public class BookingPageFlow extends BookingPageLocators{
 	
 	
 	public String changeDate(String referenceNum, String email, String mobile, String lastName, String newDate, 
-			String selectSeat,String totalpassString ,String bookingclass,String tripType) throws Throwable{
+			String selectSeat,String totalpassString ,String bookingclass,String bundle) throws Throwable{
 		Thread.sleep(10000);//pageload is taking time don't remove this thread
 		waitForElementPresent(BookingPageLocators.btnchngFlight, "Change Flight");
 		click(BookingPageLocators.btnchngFlight, "Change Flight");
@@ -1266,7 +1266,7 @@ public class BookingPageFlow extends BookingPageLocators{
 		click(BookingPageLocators.continuebtn, "Continue");
 		select_date(newDate);
 		click(BookingPageLocators.selectDateButton_mb, "Select");
-		selectClass(bookingclass, tripType);
+		selectClass(bookingclass, bundle);
 		Thread.sleep(3000);
 		String newDateto=driver.findElement(By.xpath("//*[@resource-id='com.flynas.android.app:id/extraFlightDate']")).getText();
 		String Date[] = newDateto.split(",");

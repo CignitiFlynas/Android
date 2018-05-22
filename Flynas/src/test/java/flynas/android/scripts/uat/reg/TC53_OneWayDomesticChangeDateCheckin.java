@@ -37,7 +37,7 @@ public class TC53_OneWayDomesticChangeDateCheckin extends BookingPageFlow{
 					homepage.Login(username,password);
 					homepage.select_Bookflights("Registered");
 					
-					inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, rtrndate,Adult, Child, infant,promo,currency);
+					inputBookingDetails(tripType, origin, dest, deptdate, origin2, departure2, rtrndate,Adult, Child, infant,promo,bundle);
 					clickFindFlightsBtn();
 					selectClass(bookingClass, bundle);
 					continueOnPsngrDtls();
