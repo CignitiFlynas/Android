@@ -70,6 +70,7 @@ public class RegistrationPage extends HomePageLocators{
 		BookingPageFlow.scrollKeysForAndroid(new String[] { }, "Document Expiry Date","");
 		click(BookingPageLocators.selectdate, "Select");
 		click(RegistrationPageLocators.registerbtn,"Register Button");
+		
 		if(isElementDisplayedTemp(HomePageLocators.settingsIcn)==true)
 		{
 		BookingPageFlow.writecredentials(email,password,firstname,lastName,doctyp,docNum);

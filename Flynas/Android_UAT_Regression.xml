@@ -11,12 +11,12 @@
 		</groups> 
 			
 		<classes>	 	
-			<!--  	<class name="flynas.android.scripts.uat.reg.TC01_a_memberRegistration"/>
+			 <!-- 	<class name="flynas.android.scripts.uat.reg.TC01_a_memberRegistration"/>
 				<class name="flynas.android.scripts.uat.reg.TC01_b_verifyRegistrationFailurewithExistingEmailID"/>
 				<class name="flynas.android.scripts.uat.reg.TC01_c_verifyChildRegistrationNbookingFailure"/>
 				<class name="flynas.android.scripts.uat.reg.TC01_d_UpdateProfiledetails"/>
 				<class name="flynas.android.scripts.uat.reg.TC01_e_VerifyAccLockOn10IncorrectPswdEntries"/>
-				<class name="flynas.android.scripts.uat.reg.TC01_f_UpdatePasswordInProfile"/>
+				<class name="flynas.android.scripts.uat.reg.TC01_f_UpdatePasswordInProfile"/> -->
 				<class name="flynas.android.scripts.uat.reg.TC02_a_oneWayDomesticSimple1AdultCC"/>
 				<class name="flynas.android.scripts.uat.reg.TC02_b_oneWayDomesticBusiness1AdultCC"/>
 				<class name="flynas.android.scripts.uat.reg.TC02_c_RTDomesticSimple1AdultCC"/>
@@ -30,7 +30,7 @@
 				<class name="flynas.android.scripts.uat.reg.TC04_b_RtIntlOneAdultCheckinfail"/>
 				<class name="flynas.android.scripts.uat.reg.TC04_c_AnonymousOneWayIntlSimpleIntlMultiPaxCheckinFail"/>
 				<class name="flynas.android.scripts.uat.reg.TC04_d_AnonymousOneWayIntlExtraIntlMultiPaxCheckinFail"/>
-				<class name="flynas.android.scripts.uat.reg.TC04_e_AnonymousOneWayIntlBusinessIntlMultiPaxCheckinFail"/> -->
+				<class name="flynas.android.scripts.uat.reg.TC04_e_AnonymousOneWayIntlBusinessIntlMultiPaxCheckinFail"/>
 				<class name="flynas.android.scripts.uat.reg.TC05_AnonymousOneWayDomNineAdultCheckin"/>
 				<class name="flynas.android.scripts.uat.reg.TC06_AnonymousOneWayInterTwoAdultEco"/>
 				<class name="flynas.android.scripts.uat.reg.TC07_AnonymousRoundTripDomFourAdultBusiness"/>
@@ -43,8 +43,8 @@
 				<class name="flynas.android.scripts.uat.reg.TC14_oneWayDomesticSimpleCCEuro"/>
 				<class name="flynas.android.scripts.uat.reg.TC27_a_redemptionBookingwithBronzeMember"/>
 				<class name="flynas.android.scripts.uat.reg.TC27_b_BookingwithInsifficientBronzePoints"/>
-				<class name="flynas.android.scripts.uat.reg.TC35_AnonymousOneWayDomesticEconomy_MMB_ModifyExtrasSeat"/>
-				<class name="flynas.android.scripts.uat.reg.TC35_b_AnonymousOneWayIntlEconomy_MMB_ModifyExtrasSeat"/>
+				<class name="flynas.android.scripts.uat.reg.TC35_AnonymousOneWayDomesticEconomy_WCI_ModifyExtrasSeat"/>
+				<class name="flynas.android.scripts.uat.reg.TC35_b_AnonymousOneWayIntlEconomy_WCI_ModifyExtrasSeat"/>
 				<class name="flynas.android.scripts.uat.reg.TC45_OneWayDomesticCancelVerifyMMB"/>
 				<class name="flynas.android.scripts.uat.reg.TC46_RTDomesticCancelBothlegVerifyMMB"/>
 				<class name="flynas.android.scripts.uat.reg.TC47_RTDomesticCancelDepartingLeg"/>
