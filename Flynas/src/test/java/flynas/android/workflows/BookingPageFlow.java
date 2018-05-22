@@ -380,6 +380,7 @@ public class BookingPageFlow extends BookingPageLocators{
 				
 				docNum = getyakeenDOC(psngrType[0],travelDoc);
 				List<WebElement> docNumfld = driver.findElements(BookingPageLocators.idnumber);
+				docNumfld.get(0).clear();
 				docNumfld.get(0).sendKeys(docNum);
 				if(fLightType.equalsIgnoreCase("International")){
 					click(BookingPageLocators.idexpdate, "Document Expiry date");
@@ -456,6 +457,10 @@ public class BookingPageFlow extends BookingPageLocators{
 			type(BookingPageLocators.email, emailId, "Email Address");
 			scrollToElement(BookingPageLocators.continuebtn);
 			click(BookingPageLocators.continuebtn, "Continue");
+			if(isElementPresent(BookingPageLocators.mobilenum)==true){
+				click(BookingPageLocators.continuebtn, "Continue");
+					
+			}
 			FirstLastName = new String[2];
 			FirstLastName[0] =firstname;
 			FirstLastName[1] =lastName;
@@ -472,11 +477,17 @@ public class BookingPageFlow extends BookingPageLocators{
 		  ExcelReader xls = new ExcelReader(configProps.getProperty("Miscellaneous"),"Yakeendata");
 		  System.out.println("psngrType :"+psngrType+" -  travelNumType :"+travelNumType );
 		  String[] DOB = xls.getCellValue(psngrType, travelNumType).split("-");
+		  for(int i=0;i<DOB.length;i++)
+		  {
+			  System.out.println("DOB["+i+"] = "+DOB[i]);
+		  }
 		  return DOB;  
 		 }
 		 public String getyakeenDOC(String psngrType, String travelDocType){
+			System.out.println("Passenger Type :"+psngrType+" TravelDocType :"+travelDocType);
 		  ExcelReader xls = new ExcelReader(configProps.getProperty("Miscellaneous"),"Yakeendata");
 		  String DOC = xls.getCellValue(psngrType, travelDocType); 
+		  System.out.println("Document number: "+DOC);
 		  return DOC;  
 		 }	
 	
@@ -490,7 +501,7 @@ public class BookingPageFlow extends BookingPageLocators{
 				//Selecting Year
 				WebElement Year = driver.findElementByXPath("//android.widget.NumberPicker[3]//android.widget.EditText");
 				WebElement Yearminus = driver.findElementByXPath("//android.widget.NumberPicker[3]//android.widget.Button[1]");
-				
+				System.out.println("year to select :"+list[2]);
 				while(!Year.getText().equalsIgnoreCase(list[2])){
 					Point Currentyear = Year.getLocation();
 					Point yearup = Yearminus.getLocation();
@@ -956,12 +967,16 @@ public class BookingPageFlow extends BookingPageLocators{
 							{
 								click(BookingPageLocators.bookingclass(bookingClass), bookingClass);
 								Thread.sleep(2000);
+								if(isElementPresent(BookingPageLocators.light)== true)
+								{Reporter.failureReport("Verify bundles in Code share flight", "bundles displayed");}
 								break;
 							}
 						else if((4 < count && count < 8)  && bookingtype.equalsIgnoreCase("PartcodeShare"))
 								{
 								click(BookingPageLocators.bookingclass(bookingClass), bookingClass);
 								Thread.sleep(2000);
+								if(isElementPresent(BookingPageLocators.light)== true)
+								{Reporter.failureReport("Verify bundles in Code share flight", "bundles displayed");}
 								break;							
 								}
 						else{	
