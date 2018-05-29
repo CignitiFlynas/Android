@@ -17,7 +17,7 @@
 				<class name="flynas.android.scripts.uat.reg.TC01_d_UpdateProfiledetails"/>
 				<class name="flynas.android.scripts.uat.reg.TC01_e_VerifyAccLockOn10IncorrectPswdEntries"/>
 				<class name="flynas.android.scripts.uat.reg.TC01_f_UpdatePasswordInProfile"/> -->
-				<class name="flynas.android.scripts.uat.reg.TC02_a_oneWayDomesticSimple1AdultCC"/>
+			<!-- 	<class name="flynas.android.scripts.uat.reg.TC02_a_oneWayDomesticSimple1AdultCC"/>
 				<class name="flynas.android.scripts.uat.reg.TC02_b_oneWayDomesticBusiness1AdultCC"/>
 				<class name="flynas.android.scripts.uat.reg.TC02_c_RTDomesticSimple1AdultCC"/>
 				<class name="flynas.android.scripts.uat.reg.TC02_d_RTDomesticBusiness1AdultCC"/>
@@ -36,8 +36,8 @@
 				<class name="flynas.android.scripts.uat.reg.TC07_AnonymousRoundTripDomFourAdultBusiness"/>
 				<class name="flynas.android.scripts.uat.reg.TC08_AnonymousRTInt1ad1Ch1InBusExtra"/>
 				<class name="flynas.android.scripts.uat.reg.TC09_AnonymousRTInt1ad1Ch1InSimpleExtras"/>
-				<class name="flynas.android.scripts.uat.reg.TC10_AnonymousOneAdultOneChildFlexCordShare"/>
-				<class name="flynas.android.scripts.uat.reg.TC11_AnonymousOneAdultOneChildOneInfantPartCordShare"/>
+				<class name="flynas.android.scripts.uat.reg.TC10_AnonymousOneAdultOneChildFlexCordShare"/> -->
+			 	<class name="flynas.android.scripts.uat.reg.TC11_AnonymousOneAdultOneChildOneInfantPartCordShare"/>
 				<class name="flynas.android.scripts.uat.reg.TC12_PayWithCreditShell"/>
 				<class name="flynas.android.scripts.uat.reg.TC13_oneWayDomesticSimpleCCUSD"/>
 				<class name="flynas.android.scripts.uat.reg.TC14_oneWayDomesticSimpleCCEuro"/>
@@ -55,12 +55,12 @@
 				<class name="flynas.android.scripts.uat.reg.TC52_OneWayDomesticChangeDateCancel"/>
 				<class name="flynas.android.scripts.uat.reg.TC53_OneWayDomesticChangeDateCheckin"/>
 				<class name="flynas.android.scripts.uat.reg.TC54_RTDomesticBookingNCheckinWithNaSmiles"/>
-				<class name="flynas.android.scripts.uat.reg.TC56_RTDomesticBothlegChangeDateModifyExtrasLoungeSeats"/>
+		<!-- 	<class name="flynas.android.scripts.uat.reg.TC56_RTDomesticBothlegChangeDateModifyExtrasLoungeSeats"/>
 				<class name="flynas.android.scripts.uat.reg.TC57_RTDomesticDepartingLegChangeDateModifyExtrasLoungeSeats"/>
 				<class name="flynas.android.scripts.uat.reg.TC58_RTDomesticReturningLegChangeDateModifyExtrasLoungeSeats"/>
 				<class name="flynas.android.scripts.uat.reg.TC59_RTIntlReturningLegChangeDateModifyExtrasLoungeSeats"/>
 				<class name="flynas.android.scripts.uat.reg.TC60_RTIntlBothlegChangeDateModifyExtrasLoungeSeats"/>
-				<class name="flynas.android.scripts.uat.reg.TC61_verifingFareSummaryPrices"/>
+				<class name="flynas.android.scripts.uat.reg.TC61_verifingFareSummaryPrices"/> -->
 					
 								
 		</classes>
