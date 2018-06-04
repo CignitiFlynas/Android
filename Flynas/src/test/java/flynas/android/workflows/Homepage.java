@@ -1,5 +1,7 @@
 package flynas.android.workflows;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.RandomStringUtils;
 
 import com.ctaf.utilities.Reporter;
@@ -10,6 +12,7 @@ public class Homepage extends HomePageLocators{
 	
 	public void select_Bookflights(String userType) throws Throwable
 	{
+		driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
 		if(userType.equalsIgnoreCase("registered")){
 			waitforElement(HomePageLocators.rgstrdUsrIcnBF);
 			click(HomePageLocators.rgstrdUsrIcnBF, "Book flights");

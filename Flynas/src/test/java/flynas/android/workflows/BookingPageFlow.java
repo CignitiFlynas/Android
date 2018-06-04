@@ -980,6 +980,7 @@ public class BookingPageFlow extends BookingPageLocators{
 								break;							
 								}
 						else{	
+							
 								ClassArrow.get(i+1).click();
 								}
 							
@@ -1267,7 +1268,7 @@ public class BookingPageFlow extends BookingPageLocators{
 		select_date(newDate);
 		click(BookingPageLocators.selectDateButton_mb, "Select");
 		selectClass(bookingclass, bundle);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		String newDateto=driver.findElement(By.xpath("//*[@resource-id='com.flynas.android.app:id/extraFlightDate']")).getText();
 		String Date[] = newDateto.split(",");
 		String Datesplit[] = Date[1].split(" ");
