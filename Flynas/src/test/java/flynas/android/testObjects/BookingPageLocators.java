@@ -109,7 +109,7 @@ public class BookingPageLocators extends ActionEngine{
 	public static By confirmation_PNR  = By.xpath("//*[@resource-id='com.flynas.android.app:id/confirmationPNR']");
 
 	
-	//Baggage
+	//BaggageL
 	
 	public static By baggagetittle = By.xpath("//android.widget.TextView[@text='Check-in baggage']");
 	public static By baggageAddPlusButton = By.xpath("//*[@resource-id='com.flynas.android.app:id/showHideBaggageBarIndicator']");

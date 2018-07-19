@@ -1324,6 +1324,7 @@ public class BookingPageFlow extends BookingPageLocators{
 		click(BookingPageLocators.continuebtn, "Continue");
 		if(isElementPresent(BookingPageLocators.ok)==true){
 			click(BookingPageLocators.ok, "DOB validation alert");
+			click(BookingPageLocators.continuebtn, "Continue");
 		}
 		}catch (Exception e){
 			Reporter.failureReport("Clicking Continue on Passengers Details page", "Could not click on continue button");
