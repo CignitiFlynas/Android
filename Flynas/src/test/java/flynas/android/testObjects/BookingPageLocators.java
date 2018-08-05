@@ -60,6 +60,12 @@ public class BookingPageLocators extends ActionEngine{
 	public static By smilePointsbtn = By.xpath("//*[@resource-id='com.flynas.android.app:id/vgSearchFlightPayWithSmilePoints']");
 	public static By findFlights = By.id("com.flynas.android.app:id/vgSearchFlightFindFlights");
 	
+	//terms&conditions page
+	public static By iAgreeBtn = By.id("com.flynas.android.app:id/bAccept");
+	
+	//travel insurance
+	public static By travelInsuranceCheckBox=By.id("com.flynas.android.app:id/activity_extras_new_check_box_insurance");
+	//public static By countryCodeMbltext=By.id("com.flynas.android.app:id/contactDetailsCountryCodeMobile");
 	//SettingsPage
 	public static By Currency = By.id("com.flynas.android.app:id/vgSelectCurrency");
 	public static By currencytype(String Currency) {
@@ -83,6 +89,8 @@ public class BookingPageLocators extends ActionEngine{
 	public static By mobilenum = By.id("com.flynas.android.app:id/contactDetailsMobileNumber");
 	public static By email = By.id("com.flynas.android.app:id/contactDetailsEmailAddress");
 	public static By cnfmemail = By.xpath("//*[@resource-id='com.flynas.android.app:id/contactDetailsEmailConfirm']");
+	public static By countryCodeMblText=By.xpath("//*[@resource-id='com.flynas.android.app:id/contactDetailsCountryCodeMobile']");
+	//public static By countryCodeMbltext=By.id("com.flynas.android.app:id/contactDetailsCountryCodeMobile");
 	public static By continuebtn = By.xpath("//*[@resource-id='com.flynas.android.app:id/continueButton']");
 	public static By continuebtntxt = By.xpath("//*[@resource-id='com.flynas.android.app:id/continueButtonText]");
 	public static By checkIn_btn = By.xpath("//*[@text='Check-in']");

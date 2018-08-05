@@ -29,7 +29,11 @@ public class HomePageLocators extends ActionEngine{
 	public static By rgstrdUsrIcnBP = By.id("com.flynas.android.app:id/vgTabBoardingPasses");
 	public static By rgstrdUsrIcnHm = By.id("com.flynas.android.app:id/vgTabHome");
 	
-	 
+	 //acces device location buttons
+	public static By denyBtn=By.id("com.android.packageinstaller:id/permission_deny_button");
+	public static By allowBtn=By.id("com.android.packageinstaller:id/permission_allow_button");
+	
+			 
 	
 	
 	
