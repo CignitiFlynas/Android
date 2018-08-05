@@ -12,7 +12,7 @@ import flynas.android.workflows.*;
 public class TC02_a_oneWayDomesticSimple1AdultCC extends BookingPageFlow{
 	
 	ExcelReader xls = new ExcelReader(configProps.getProperty("TestData_UAT_Reg"),"TC_02_oneWayDomesticBusiness");
-
+	String countryCodeText=null;	
 	@Test(dataProvider = "testData",groups={"Android"})
 	public  void TC_2a_oneWayDomesticBusinessCC(String tripType, String origin, String dest, 
 			String deptDate, String origin2,String departure2, String retdate,String Adult,
@@ -24,6 +24,7 @@ public class TC02_a_oneWayDomesticSimple1AdultCC extends BookingPageFlow{
 		try {
 			TestEngine.testDescription.put(HtmlReportSupport.tc_name, description);
 			// Handlepopup();
+			
 			String[] Credentials = pickCredentials("UserCredentials");
 			String username =Credentials[0];
 			String password =Credentials[1];
@@ -40,9 +41,10 @@ public class TC02_a_oneWayDomesticSimple1AdultCC extends BookingPageFlow{
 					
  			inputBookingDetails(tripType, origin, dest, depDate, origin2, departure2, retdate,Adult, Child, infant,promo,currency);
 			clickFindFlightsBtn();
+			
  			selectClass(bookingClass, bundle);
- 			continueOnPsngrDtls();
- 			continueOnExtras();
+ 			countryCodeText=continueOnPsngrDtls();
+ 			continueOnExtras(countryCodeText);
 			selectSeat(selectSeat, bookingType,"");
 			payment(paymentType,"");
 			validate_ticketStatus();
