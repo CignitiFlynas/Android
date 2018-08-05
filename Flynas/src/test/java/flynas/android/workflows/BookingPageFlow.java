@@ -16,6 +16,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestResult;
 import org.openqa.selenium.Alert;
 
@@ -25,12 +26,16 @@ import com.ctaf.support.HtmlReportSupport;
 import com.ctaf.utilities.Reporter;
 
 import flynas.android.testObjects.BookingPageLocators;
+import flynas.android.workflows.*;
+import flynas.web.workflows.BookingPage;
+
 
 
 
 
 public class BookingPageFlow extends BookingPageLocators{
-	
+	BookingPage bookingPage=new BookingPage();
+	String countryCodeText=null;
 	public void inputBookingDetails(String tripType, String origin, String dest, String deptDate,
 			String origin2, String departure2, String retDate, String adults, String child, String infant, String promo,String Currency) throws Throwable{
 		
@@ -147,6 +152,16 @@ public class BookingPageFlow extends BookingPageLocators{
 	public void clickFindFlightsBtn() throws Throwable{
 		scrollToText("Find Flights");
 		click(BookingPageLocators.findFlights, "Find Flights");
+		clickIAgreeBtn();
+	}
+	
+	public void clickIAgreeBtn() throws Throwable{
+		bookingPage.waitforpageload();
+		if(isElementDisplayedTemp(BookingPageLocators.iAgreeBtn)==true){
+			scrollToText("I AGREE");
+			click(BookingPageLocators.iAgreeBtn, "I agree");
+		}
+		
 	}
 
 	public void select_date(String deptdate) throws Throwable
@@ -728,9 +743,11 @@ public class BookingPageFlow extends BookingPageLocators{
 	public boolean payment(String paymentType,String pnr) throws Throwable {		
 		waitforElement(BookingPageLocators.Payment_title);
 		System.out.println(paymentType);
+		waitforElement(BookingPageLocators.continuebtn);
 		scrollToElement(BookingPageLocators.continuebtn);
 			
 		if(paymentType.equalsIgnoreCase("Credit Card")){
+			waitforElement(BookingPageLocators.cardNumber);
 			type(BookingPageLocators.cardNumber,configProps.getProperty("cardNumber"),"Card Number");
 			type(BookingPageLocators.cardName,configProps.getProperty("cardHolderName"),"Card Holder Name");
 		
@@ -1314,29 +1331,78 @@ public class BookingPageFlow extends BookingPageLocators{
 		click(BookingPageLocators.tittleHome, "Home Img");
 		}	
 	
-	public void continueOnPsngrDtls() throws Throwable{
+	public String continueOnPsngrDtls() throws Throwable{
 		try{
 		waitforElement(BookingPageLocators.title);
+		
 		if(isElementDisplayedTemp(BookingPageLocators.continuebtn)==false)
 		{
 			scrollToElement(BookingPageLocators.continuebtn);
 		}
+		waitforElement(BookingPageLocators.countryCodeMblText);
+		countryCodeText=getText(BookingPageLocators.countryCodeMblText, "Country Code Mobile");
+		System.out.println("Country code is:"+countryCodeText);
 		click(BookingPageLocators.continuebtn, "Continue");
+		Thread.sleep(5000);
+		//adding the below line to solve server connection issue
+		click(BookingPageLocators.continuebtn, "Continue");
+	
 		if(isElementPresent(BookingPageLocators.ok)==true){
 			click(BookingPageLocators.ok, "DOB validation alert");
+			Thread.sleep(2000);
+			waitforElement(BookingPageLocators.continuebtn);
 			click(BookingPageLocators.continuebtn, "Continue");
 		}
 		}catch (Exception e){
 			Reporter.failureReport("Clicking Continue on Passengers Details page", "Could not click on continue button");
+		}
+		return countryCodeText;
+	}
+	
+	public void continueOnExtras(String countryCodeText) throws Throwable{
+		try{
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+	
+		System.out.println("Country Code Text->"+countryCodeText);
+		if(isElementDisplayed(BookingPageLocators.baggagetittle)){
+			if(countryCodeText.contains("+966") && isElementDisplayed(BookingPageLocators.travelInsuranceCheckBox)==true){
+				click(BookingPageLocators.travelInsuranceCheckBox,"Travel Insurance Checkbox");
+			}
+			else if(countryCodeText.contains("+966") && isElementDisplayed(BookingPageLocators.travelInsuranceCheckBox)==false){
+				Reporter.failureReport("Insurance Checkbox", "Country Code is Saudi Arabia but insurance CheckBox is not displayed");
+			}
+			else if(!countryCodeText.contains("+966") && isElementDisplayed(BookingPageLocators.travelInsuranceCheckBox)){
+				Reporter.failureReport("Insurance Checkbox", "Country Code is not Saudi Arabia but insurance CheckBox is  displayed");
+			}
+			click(BookingPageLocators.continuebtn, "Continue");
+		
+		}else{
+			System.out.println("No Baggage is Available");				
+			}
+		}catch (Exception e){
+			Reporter.failureReport("Clicking Continue on Extras page", "Could not click on continue button");
 		}
 	}
 	
 	public void continueOnExtras() throws Throwable{
 		try{
 		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		
+		/*Select sel=new Select(driver.findElement(BookingPageLocators.countryCodeMblText));
+		WebElement opt=sel.getFirstSelectedOption();
+		String selectedCountryCode=opt.getText();
+		System.out.println("Selected country code is:"+selectedCountryCode);*/
+	
+		
+		//String countryCodeText=getText(BookingPageLocators.countryCodeMblText, "Country Code Mobile");
+		//System.out.println("Country Code Text->"+countryCodeText);
 		if(isElementDisplayed(BookingPageLocators.baggagetittle)){
-		click(BookingPageLocators.continuebtn, "Continue");
+			if(isElementDisplayed(BookingPageLocators.travelInsuranceCheckBox)==true){
+				click(BookingPageLocators.travelInsuranceCheckBox,"Travel Insurance Checkbox");
+			}
+			
+			click(BookingPageLocators.continuebtn, "Continue");
 		
 		}else{
 			System.out.println("No Baggage is Available");				
